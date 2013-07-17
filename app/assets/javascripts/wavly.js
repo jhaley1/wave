@@ -3,11 +3,22 @@ window.Wavly = {
   Collections: {},
   Views: {},
   Routers: {},
+  
   initialize: function() {
-    alert('Hello from Backbone!');
+    Wavly.waves = new Wavly.Collections.Waves ();
+    
+    Wavly.waves.fetch({
+      success: function () {
+        new Wavly.Routers.Waves ({
+          $rootEl: $(".wave")
+        });
+        
+        Backbone.history.start();
+      }
+    });
   }
 };
 
-$(document).ready(function(){
+$(function(){
   Wavly.initialize();
 });
