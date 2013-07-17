@@ -24,7 +24,8 @@ class WavesController < ApplicationController
   end
   
   def index
-    @waves = current_user.waves
+    @waves = current_user.waves    
+    render :json => @waves
   end
   
   def new

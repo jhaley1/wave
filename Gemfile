@@ -5,7 +5,9 @@ gem 'backbone-on-rails'
 gem 'debugger'
 gem 'devise'
 gem 'jquery-rails'
+gem 'oj'
 gem 'pg'
+gem 'rabl'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
