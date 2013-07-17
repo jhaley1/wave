@@ -1,4 +1,6 @@
 class WavesController < ApplicationController
+  respond_to :json
+  
   def create
     @wave = current_user.build(params[:wave])
     

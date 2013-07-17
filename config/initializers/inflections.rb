@@ -13,3 +13,19 @@
 # ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.singular 'waves', 'wave'
+end
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.plural 'wave', 'waves'
+end
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.singular 'Waves', 'Wave'
+end
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.plural 'Wave', 'Waves'
+end

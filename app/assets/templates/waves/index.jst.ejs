@@ -1,0 +1,17 @@
+<script>
+  var peer = new Peer('someid', {key: '7tem2u7zmcf8ncdi'});
+  peer.on('connection', function(conn) {
+    conn.on('data', function(data){
+      // Will print 'hi!'
+      console.log(data);
+    });
+  });
+</script>
+
+<script>
+  var peer = new Peer('anotherid', {key: '7tem2u7zmcf8ncdi'});
+  var conn = peer.connect('someid');
+  conn.on('open', function(){
+    conn.send('hi!');
+  }); 
+</script>
