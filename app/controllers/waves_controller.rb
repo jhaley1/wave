@@ -5,6 +5,10 @@ class WavesController < ApplicationController
     @wave = current_user.build(params[:wave])
     
     if @wave.save
+      Pusher['mice ']
+        .trigger('created', @wave.to_json,
+          request.headers["X-Pusher-Socket-ID"])
+      
       render :json => @wave
     else
       render :json => @wave.errors.full_messages
@@ -15,6 +19,11 @@ class WavesController < ApplicationController
     @wave = current_user.waves.find(params[:id])
     
     if @wave.destroy
+      Pusher[@wave.channel_name]
+        .trigger('destroyed', 
+          {:id => params[:id]}, 
+          request.headers["X-Pusher-Socket-ID"])
+      
       render :json => @wave
     else
       render :json => @wave.errors.full_messages
@@ -26,7 +35,12 @@ class WavesController < ApplicationController
   end
   
   def index
-    @waves = current_user.waves    
+    if current_user.friends_waves
+      @waves = current_user.waves + current_user.shared_waves
+    else
+      @waves = current_user.waves
+    end
+    
     render :json => @waves
   end
   
@@ -44,7 +58,10 @@ class WavesController < ApplicationController
     @wave = Wave.find(params[:id])
     
     if @wave.update_attributes(params[:wave])
-      @wave.save
+      Pusher[@wave.channel_name]
+        .trigger('updated', item.attributes,
+          request.headers["X-Pusher-Socket-ID"])
+      
       render :json => @wave
     else
       render :json => @wave.errors.full_messages

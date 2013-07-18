@@ -7,6 +7,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'oj'
 gem 'pg'
+gem 'pusher'
 gem 'rabl'
 
 group :assets do

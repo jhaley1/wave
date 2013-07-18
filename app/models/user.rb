@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :waves
+  has_many :friends_waves, :foreign_key => :friend_id
+  has_many :shared_waves, :through => :friends_waves
+  
 end

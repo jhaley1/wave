@@ -1,0 +1,13 @@
+$(fucntion () {
+  Pusher.log = function(message) {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  };
+
+  var pusher = new Pusher('1a5bf2d16cdc6eef2287');
+  var channel = pusher.subscribe('mice');
+  channel.bind('created', function(data) {
+    alert(data.message);
+  });
+});

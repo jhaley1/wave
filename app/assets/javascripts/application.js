@@ -15,6 +15,8 @@
 //= require underscore
 //= require backbone
 //= require peer
+//= require pusher.min
+//= require backpusher
 //= require wavly
 //= require_tree ../templates
 //= require_tree ./models

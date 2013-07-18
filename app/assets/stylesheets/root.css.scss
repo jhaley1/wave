@@ -3,7 +3,38 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .wave {
-  width: 500px;
-  height: 500px;
-  background-color: black;
+  float: left;
+  width: 80%;
+  height: 100%;
+  color: white;
+}
+
+.sidebar {
+  float: left;
+  width: 20%;
+  height: 100%;
+  left: 0;
+}
+
+.container {
+  width: 100%;
+  height: 800px;
+  background-color: lighten(#F2EEDB, 7%);
+}
+
+.container-row {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+}
+
+// COLORS
+
+$purple: darken(#DDABEB, 12%);
+$dark-purple: darken(#DDABEB, 17%);
+
+* {
+  font-family: "HelveticaNeue";
+  -moz-font-family: "Helvetica";
+  color: #2D2D2D;
 }

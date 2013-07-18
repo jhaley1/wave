@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716221248) do
+ActiveRecord::Schema.define(:version => 20130718222649) do
+
+  create_table "friends_waves", :force => true do |t|
+    t.integer  "shared_wave_id"
+    t.integer  "friend_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -39,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130716221248) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "token"
   end
 
   add_index "waves", ["user_id"], :name => "index_waves_on_user_id"

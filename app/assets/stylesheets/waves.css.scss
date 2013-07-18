@@ -1,3 +1,56 @@
 // Place all the styles related to the waves controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$green : darken(#C9E69A, 10%); 
+
+.editor {
+  height: 400px;
+  width: 300px;
+}
+
+#wave {
+  resize: none;
+
+  height: 400px;
+  width: 400px;
+}
+
+.wave-content {
+  margin: 10px;
+}
+
+input {
+  font-size: 14px;
+}
+
+textarea {
+  font-size: 14px;
+  background-color: lighten(#F2EEDB, 7%);
+  border: 2px solid white;
+}
+
+*:focus {
+  outline: 0px none transparent;
+}
+
+
+.button {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+  border: none;
+  background-color: $green;
+  text-shadow: 2px 2px 8px darken(#C9E69A, 25%);
+  color: white;
+  display: block;
+  padding: 4px 0;
+  width: 100px;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: darken(#C9E69A, 20%);
+  text-shadow: 2px 2px 8px darken(#C9E69A, 35%);
+};
+
