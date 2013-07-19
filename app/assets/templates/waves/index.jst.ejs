@@ -1,6 +1,12 @@
 <div class="wave-content">
   <% waves.each(function (wave) { %>
-    <a href="#/waves/<%= wave.get('id') %>"><%= wave.escape("title") %></a>
+    <a href="#/waves/<%= wave.get('id') %>/edit">
+      <div class="wave-link">
+        <%= wave.escape("title") %>
+      </div>  
+    </a>
     <br>
   <% }) %>
 </div>
+
+<button class="button" id="js-new-wave">New Wave</button>

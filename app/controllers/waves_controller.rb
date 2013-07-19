@@ -2,12 +2,11 @@ class WavesController < ApplicationController
   respond_to :json
   
   def create
-    @wave = current_user.build(params[:wave])
+    @wave = current_user.waves.build(params[:wave])
     
     if @wave.save
-      Pusher['mice ']
-        .trigger('created', @wave.to_json,
-          request.headers["X-Pusher-Socket-ID"])
+      Pusher[params[:wave][:title]]
+        .trigger('created', @wave.to_json )
       
       render :json => @wave
     else
@@ -19,10 +18,9 @@ class WavesController < ApplicationController
     @wave = current_user.waves.find(params[:id])
     
     if @wave.destroy
-      Pusher[@wave.channel_name]
+      Pusher[params[:wave][:title]]
         .trigger('destroyed', 
-          {:id => params[:id]}, 
-          request.headers["X-Pusher-Socket-ID"])
+          { :id => params[:id] })
       
       render :json => @wave
     else
@@ -58,9 +56,8 @@ class WavesController < ApplicationController
     @wave = Wave.find(params[:id])
     
     if @wave.update_attributes(params[:wave])
-      Pusher[@wave.channel_name]
-        .trigger('updated', item.attributes,
-          request.headers["X-Pusher-Socket-ID"])
+      Pusher[params[:wave][:title]]
+        .trigger('updated', @wave.to_json)
       
       render :json => @wave
     else

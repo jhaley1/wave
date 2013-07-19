@@ -2,7 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$green : darken(#C9E69A, 10%); 
+$green: darken(#C9E69A, 10%);
+$dark-green: darken(#C9E69A, 20%);
+$black: #2D2D2D;
+
+* {
+  font-family: "HelveticaNeue";
+  -moz-font-family: "Helvetica";
+  color: $black;
+}
+
+@mixin input-types {
+  font-size: 14px;
+  background-color: lighten(#F2EEDB, 7%);
+  border: 1px solid $black;
+}
 
 .editor {
   height: 400px;
@@ -21,13 +35,22 @@ $green : darken(#C9E69A, 10%);
 }
 
 input {
-  font-size: 14px;
+  @include input-types;
+  
+}
+
+#wave-title {
+  width: 60%;
+  padding: 4px;
+  font-size: 18px;
 }
 
 textarea {
-  font-size: 14px;
-  background-color: lighten(#F2EEDB, 7%);
-  border: 2px solid white;
+  @include input-types;
+  height: 400px;
+  width: 60%;
+  padding: 4px;
+  resize: none;
 }
 
 *:focus {
@@ -50,7 +73,16 @@ textarea {
 }
 
 .button:hover {
-  background-color: darken(#C9E69A, 20%);
+  background-color: $dark-green;
   text-shadow: 2px 2px 8px darken(#C9E69A, 35%);
 };
 
+.wave-link {
+  width: 90%;
+  height: 10px;
+  color: $dark-green;
+}
+
+.wave-link:hover {
+  color: $green;
+}

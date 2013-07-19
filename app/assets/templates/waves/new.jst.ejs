@@ -1,0 +1,37 @@
+<script>
+  $(function () {
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+
+    var pusher = new Pusher('1a5bf2d16cdc6eef2287');
+    var channelName = $('#wave-title').val();
+    var channel = pusher.subscribe(channelName);
+    channel.bind('created', function(data) {
+      //callback where i can update title/content (empty/val)
+      console.log(data);
+    });
+    
+    $(".save").on("click", function (event) {
+      event.preventDefault();
+      var valuesToSubmit = $(".wave").serialize();
+      
+      $.ajax({
+        url: "/waves",
+        type: "POST",
+        data: valuesToSubmit
+      });
+    });
+  });
+</script>
+
+<form class="wave">
+  <input type="text" 
+    id="wave-title"
+    name="wave[title]" 
+    placeholder="title">
+  <textarea name="wave[content]"></textarea>
+  <button class="button save">Save</button>
+</form>
