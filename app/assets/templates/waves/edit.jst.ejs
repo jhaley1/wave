@@ -33,7 +33,6 @@
 
 <div class="wavebox-container">
 
-
   <div class="wavebox-content">
     <form class="wave">
       <input type="text" 
@@ -58,8 +57,9 @@
     <div class="in-wave">
       <h2>In wave</h2>
       <ul>
-        <li>person 1</li>
-        <li>person 2</li>
+        <% _(thisWave.get('friends')).each(function (friend) { %>
+          <li><%= friend.escape('email') %></li>
+        <% }); %>
       </ul>
     </div>
     
@@ -113,16 +113,16 @@
 
   	$(".typeahead").typeahead({
       source: function (query, process) {
-          userObjs = {};
-          userEmails = [];
+        userObjs = {};
+        userEmails = [];
 
-          _.each(dataset, function(item, ix, list) {
-            userEmails.push(item.email);
-        
-            userObjs[item.email] = item;
-          });
+        _.each(dataset, function(item, ix, list) {
+          userEmails.push(item.email);
       
-          process(userEmails);
+          userObjs[item.email] = item;
+        });
+    
+        process(userEmails);
       }
   	});
   });

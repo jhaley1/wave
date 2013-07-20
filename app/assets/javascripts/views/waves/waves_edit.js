@@ -4,6 +4,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
   
   events: {
     "button #back": "back",
+    "click .friend-search-submit": "shareWave",
   },
   
   initialize: function () {
@@ -25,6 +26,27 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
   back: function (event) {
     event.preventDefault();
     Wavly.router.navigate("#/", { trigger: true });
-  }
+  },
+  
+  shareWave: function (event) {
+    event.preventDefault();
+    
+    var ev = $("ul.typeahead.dropdown-menu").find('li.active').data('value');
+    var userObj = userObjs[ev];
+    var id = userObj.id;
+    var email = userObj.email;
+    
+    $(function () {
+      $(".wave").append(
+        "<input type='hidden' name='wave[friend_ids][]' value='" + id + "'>"
+      );
+    
+      $(".in-wave ul").append(
+        "<li><span class='friends-shared'>" + email + "</span></li>"
+      );
+      
+      $("#search-friends").val("");
+    });  
+  },
 
 });

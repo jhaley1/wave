@@ -20,12 +20,8 @@ h1, h2, h3, h4, h5 {
   margin: 10px;
 }
 
-input {
-  @include input-types;
-  
-}
-
 #wave-title {
+  @include input-types;
   width: 95%;
   padding: 4px;
   font-size: 32px;

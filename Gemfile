@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'backbone-on-rails'
+gem 'compass-rails'
+gem 'bootstrap-sass'
 gem 'debugger'
 gem 'devise'
 gem 'jquery-rails'
