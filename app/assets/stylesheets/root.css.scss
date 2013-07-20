@@ -2,8 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$green: darken(#C9E69A, 10%);
-$dark-green: darken(#C9E69A, 20%);
+$orange: darken(#FF9A2E, 0%);
+$dark-orange: darken(#FF9A2E, 10%);
+$green: darken(#C9E69A, 20%);
+$dark-green: darken(#C9E69A, 30%);
+$black: #2D2D2D;
 
 a {
   text-decoration: none;
@@ -14,11 +17,10 @@ a:hover {
   color: $green;
 }
 
-.wave {
+.wave-container {
   float: left;
   width: 80%;
   height: 100%;
-  color: white;
 }
 
 .sidebar {
@@ -30,12 +32,19 @@ a:hover {
 
 .sidebar-content {
   padding: 8px;
+  padding-top: 0px;
 }
 
 .container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   width: 100%;
-  height: 800px;
-  background-color: lighten(#F2EEDB, 7%);
+  height: 900px;
+  background-color: $black;
 }
 
 .container-row {
@@ -51,5 +60,75 @@ $dark-purple: darken(#DDABEB, 17%);
 * {
   font-family: "HelveticaNeue";
   -moz-font-family: "Helvetica";
-  color: #2D2D2D;
+  color: white;
+}
+
+.sidebar-nav {
+  font-weight: bold;
+  position: absolute;
+  bottom: 0px;
+  width: 18%;
+  text-align: center;
+  color: $black;
+}
+
+.nav-button {
+  width: 95.5%;
+  height: 32px;
+  padding-top: 12px;
+  border: 1px solid darken(white, 60%);
+  border-bottom: none;
+  padding-left: 1px;
+  padding-right: 1px;
+  background-color: $orange;
+}
+
+.nav-button:hover {
+  background-color: $dark-orange;
+}
+
+#bottom-nav-button {
+  background-color: #66AEF3;
+  border-bottom: 1px solid darken(white, 60%);
+}
+
+#bottom-nav-button:hover {
+  background-color: darken(#66AEF3, 10%);
+}
+
+.middle-buttons {
+  width: 100%;
+  height: 32px;
+  margin-bottom: 13px;
+}
+
+@mixin mid-buttons {
+  float: left;
+  height: 32px;
+  width: 48%;
+  border: 1px solid darken(white, 60%);
+  padding-top: 12px;
+}
+
+.middle-button-1 {
+  @include mid-buttons;
+  border-right: none;
+  background-color: $green;
+}
+
+.middle-button-1:hover {
+  background-color: $dark-green;
+}
+
+.middle-button-2 {
+  @include mid-buttons;
+  background-color: darken(#E0C4EA, 10%);
+}
+
+.middle-button-2:hover {
+  background-color: darken(#E0C4EA, 20%);
+}
+
+#button-text {
+  color: $black;
 }

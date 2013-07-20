@@ -31,14 +31,99 @@
 <% var wave_id = thisWave.get('id') %>
 <input type="hidden" id="js-wave-id" value="<%= wave_id %>">
 
-<form class="wave">
-  <input type="text" 
-    id="wave-title"
-    name="wave[title]" 
-    placeholder="title"
-    value="<%= thisWave.get('title') %>">
-  <textarea name="wave[content]"><%= thisWave.get('content') %></textarea>
-  <button class="button save">Save</button>
-</form>
+<div class="wavebox-container">
 
-<button class="button back">Back</button>
+
+  <div class="wavebox-content">
+    <form class="wave">
+      <input type="text" 
+        id="wave-title"
+        name="wave[title]" 
+        placeholder="title"
+        value="<%= thisWave.get('title') %>">
+      <textarea name="wave[content]"><%= thisWave.get('content') %></textarea>
+      
+      <div class="wave-form-buttons">
+        <div class="save-button">
+          <button class="button save">Save</button>
+        </div>
+        <div class="back-button">
+          <button class="button" id="back">Back</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <div class="wavebox-contacts">
+    <div class="in-wave">
+      <h2>In wave</h2>
+      <ul>
+        <li>person 1</li>
+        <li>person 2</li>
+      </ul>
+    </div>
+    
+    <div class="add-to-wave">
+      <h2>Add to wave</h2>
+      
+      <form class="friend-search-box">
+        <input type="text" 
+          data-provide="typeahead" 
+          autocomplete="off" 
+          class="typeahead"
+          id="search-friends"
+          placeholder="Friend's name">
+  
+        <button class="friend-search-submit">+</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="wavebox-robots">
+    <div class="robot-1">
+      <span class="place-robot-text">
+        <h5>drag a robot here<br>to activate</h5>
+      </span>
+    </div>
+    <div class="robot-2">
+      <span class="place-robot-text">
+        <h5>drag a robot here<br>to activate</h5>
+      </span>
+    </div>
+  </div>
+</div>
+
+<script>
+  var all_users = JSON.parse($("#all_users_json").html());
+  
+  $(function() {
+    var typeAhead = {};
+  
+    typeAhead.Person = Backbone.Model.extend({});
+
+    typeAhead.People = Backbone.Collection.extend({
+      model: typeAhead.Person
+    });
+
+    dataset = [];
+    
+    _(all_users).each(function (user) {
+      dataset.push(user)
+    });
+
+  	$(".typeahead").typeahead({
+      source: function (query, process) {
+          userObjs = {};
+          userEmails = [];
+
+          _.each(dataset, function(item, ix, list) {
+            userEmails.push(item.email);
+        
+            userObjs[item.email] = item;
+          });
+      
+          process(userEmails);
+      }
+  	});
+  });
+</script>

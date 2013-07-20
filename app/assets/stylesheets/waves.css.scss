@@ -2,32 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$green: darken(#C9E69A, 10%);
-$dark-green: darken(#C9E69A, 20%);
+$orange: darken(#FF9A2E, 0%);
+$dark-orange: darken(#FF9A2E, 10%);
 $black: #2D2D2D;
 
-* {
-  font-family: "HelveticaNeue";
-  -moz-font-family: "Helvetica";
-  color: $black;
+h1, h2, h3, h4, h5 {
+  color: $orange;
 }
 
 @mixin input-types {
   font-size: 14px;
-  background-color: lighten(#F2EEDB, 7%);
-  border: 1px solid $black;
-}
-
-.editor {
-  height: 400px;
-  width: 300px;
-}
-
-#wave {
-  resize: none;
-
-  height: 400px;
-  width: 400px;
+  background-color: $black;
+  border: 1px solid darken(white, 60%);
 }
 
 .wave-content {
@@ -40,49 +26,140 @@ input {
 }
 
 #wave-title {
-  width: 60%;
+  width: 95%;
   padding: 4px;
-  font-size: 18px;
+  font-size: 32px;
+  font-weight: bold;
+  color: $orange;
+  border: none;
 }
 
 textarea {
   @include input-types;
-  height: 400px;
-  width: 60%;
+  height: 600px;
+  width: 95%;
   padding: 4px;
   resize: none;
+  overflow: scroll;
 }
 
 *:focus {
   outline: 0px none transparent;
 }
 
-
 .button {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
   border: none;
-  background-color: $green;
-  text-shadow: 2px 2px 8px darken(#C9E69A, 25%);
-  color: white;
+  background-color: $orange;
+  color: $black;
+  font-weight: bold;
   display: block;
   padding: 4px 0;
   width: 100px;
+  height: 30px;
   font-size: 14px;
 }
 
 .button:hover {
-  background-color: $dark-green;
-  text-shadow: 2px 2px 8px darken(#C9E69A, 35%);
+  background-color: $dark-orange;
 };
 
 .wave-link {
   width: 90%;
   height: 10px;
-  color: $dark-green;
+  color: $dark-orange;
 }
 
 .wave-link:hover {
-  color: $green;
+  color: $orange;
+}
+
+.wavebox-container {
+  height: 100%;
+  width: 100%;
+}
+
+.wavebox-content {
+  width: 55%;
+  height: 100%;
+  float: left;
+  display: block;
+}
+
+.wavebox-contacts {
+  float: left;
+  width: 18%;
+  height: 95%;
+  display: block;
+}
+
+ul {
+  margin-left: -20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.in-wave {
+  height: 300px;
+}
+
+.add-to-wave {
+  height: 300px;
+}
+
+.wavebox-robots {
+  float: left;
+  width: 25%;
+  height: 95%;
+  display: block;
+  margin-top: 10px;
+}
+
+@mixin robot-boxes {
+  border: 1px solid darken(white, 60%);
+  width: 84%;
+  padding: 10px;
+  height: 300px;
+  text-align: center;
+}
+
+.robot-1 {
+  @include robot-boxes;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.robot-2 {
+  @include robot-boxes;
+  text-align: center;
+}
+
+.robot-1:hover, .robot-2:hover {
+  background-color: lighten($black, 1%);
+}
+
+.place-robot-text {
+  display: block;
+  margin-top: 50%;
+}
+
+.wave-form-buttons {
+  width: 96.5%;
+}
+
+.save-button {
+  float: left;
+}
+
+.back-button {
+  float: right;
+  align: right;
+}
+
+#back {
+  align: right;
 }

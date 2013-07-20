@@ -9,8 +9,8 @@ window.Wavly = {
     
     Wavly.waves.fetch({
       success: function () {
-        new Wavly.Routers.Waves ({
-          $rootEl: $(".wave")
+        Wavly.router = new Wavly.Routers.Waves ({
+          $rootEl: $(".wave-container")
         });
         
         Backbone.history.start();
