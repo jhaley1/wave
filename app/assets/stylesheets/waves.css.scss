@@ -5,15 +5,23 @@
 $orange: darken(#FF9A2E, 0%);
 $dark-orange: darken(#FF9A2E, 10%);
 $black: #2D2D2D;
+$white: darken(white, 60%);
+$purple: #58488A;
+$light-purple: #C7C0DE;
 
-h1, h2, h3, h4, h5 {
-  color: $orange;
+h1 {
+  color: white;
+  font-weight: normal;
+}
+
+h2, h3, h4, h5 {
+  color: $purple;
+  font-weight: none;
 }
 
 @mixin input-types {
   font-size: 14px;
-  background-color: $black;
-  border: 1px solid darken(white, 60%);
+  border: 1px solid $white;
 }
 
 .wave-content {
@@ -26,17 +34,19 @@ h1, h2, h3, h4, h5 {
   padding: 4px;
   font-size: 32px;
   font-weight: bold;
-  color: $orange;
+  height: 40px;
+  color: $purple;
   border: none;
 }
 
-textarea {
+#wave-content {
   @include input-types;
-  height: 600px;
+  height: 650px;
   width: 95%;
   padding: 4px;
   resize: none;
   overflow: scroll;
+  border: none;
 }
 
 *:focus {
@@ -48,8 +58,8 @@ textarea {
 	-moz-border-radius: 3px;
 	border-radius: 3px;
   border: none;
-  background-color: $orange;
-  color: $black;
+  background-color: $purple;
+  color: white;
   font-weight: bold;
   display: block;
   padding: 4px 0;
@@ -59,17 +69,17 @@ textarea {
 }
 
 .button:hover {
-  background-color: $dark-orange;
+  background-color: lighten($purple, 10%);
 };
 
 .wave-link {
   width: 90%;
   height: 10px;
-  color: $dark-orange;
+  color: $purple;
 }
 
 .wave-link:hover {
-  color: $orange;
+  color: $purple;
 }
 
 .wavebox-container {
@@ -100,26 +110,26 @@ li {
 }
 
 .in-wave {
-  height: 300px;
+  height: 340px;
 }
 
 .add-to-wave {
-  height: 300px;
+  height: 340px;
 }
 
 .wavebox-robots {
   float: left;
   width: 25%;
-  height: 95%;
+  height: 100%;
   display: block;
   margin-top: 10px;
 }
 
 @mixin robot-boxes {
-  border: 1px solid darken(white, 60%);
+  border: 1px solid $white;
   width: 84%;
   padding: 10px;
-  height: 300px;
+  height: 340px;
   text-align: center;
 }
 
@@ -135,7 +145,7 @@ li {
 }
 
 .robot-1:hover, .robot-2:hover {
-  background-color: lighten($black, 1%);
+  background-color: darken(white, 2%);
 }
 
 .place-robot-text {
@@ -159,3 +169,38 @@ li {
 #back {
   align: right;
 }
+
+#search-friends {
+  border: 1px solid $white;
+  margin-top: 15px;
+  font-size: 16px;
+  height: 80%;
+  width: 70%;
+}
+
+#search-events:hover {
+  border: 1px solid white;
+}
+
+.friend-search-box {
+  height: 30px;
+  width: 100%;
+}
+
+.friend-search-submit {
+  color: white;
+  font-weight: bold;
+  background-color: $purple;
+
+  border: none;
+  text-align: center;
+  width: 15%;
+  height: 100%;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.friend-search-submit:hover {
+  background-color: lighten($purple, 10%);
+};

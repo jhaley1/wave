@@ -16,8 +16,8 @@
 //= require backbone
 //= require peer
 //= require pusher.min
-//= require backpusher
 //= require bootstrap
+//= require bootstrap-markdown
 //= require wavly
 //= require_tree ../templates
 //= require_tree ./models

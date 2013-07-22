@@ -7,128 +7,69 @@ $dark-orange: darken(#FF9A2E, 10%);
 $green: darken(#C9E69A, 20%);
 $dark-green: darken(#C9E69A, 30%);
 $black: #2D2D2D;
-
-a {
-  text-decoration: none;
-  color: $dark-green;
-}
-
-a:hover {
-  color: $green;
-}
+$purple: #58488A;
+$light-purple: #C7C0DE;
 
 .wave-container {
   float: left;
+  margin-left: 21.5%;
   width: 80%;
   height: 100%;
 }
 
+hr {
+  height: 0px;
+  line-height: 0px;
+  margin-left: 0px;
+  border: 1px solid white;
+  width: 95%;
+}
+
 .sidebar {
+  position: fixed;
+  top: 0;
   float: left;
   width: 20%;
   height: 100%;
   left: 0;
+  color: $light-purple;
 }
 
 .sidebar-content {
-  padding: 8px;
+  position: absolute;
+  padding-left: 12px;
   padding-top: 0px;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $purple;
 }
 
 .container {
   position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
   width: 100%;
-  height: 900px;
-  background-color: $black;
+  height: 100%;
+  background-color: white;
 }
 
 .container-row {
-  position: absolute;
+  position: fixed;
+  top: 0;
   width: 100%;
+  height: 100%;
 }
-
-// COLORS
-
-$purple: darken(#DDABEB, 12%);
-$dark-purple: darken(#DDABEB, 17%);
 
 * {
   font-family: "HelveticaNeue";
   -moz-font-family: "Helvetica";
+  color: $black;
+}
+
+#nav-link {
   color: white;
+  text-decoration: none;
 }
 
-.sidebar-nav {
-  font-weight: bold;
-  position: absolute;
-  bottom: 0px;
-  width: 18%;
-  text-align: center;
-  color: $black;
-}
-
-.nav-button {
-  width: 95.5%;
-  height: 32px;
-  padding-top: 12px;
-  border: 1px solid darken(white, 60%);
-  border-bottom: none;
-  padding-left: 1px;
-  padding-right: 1px;
-  background-color: $orange;
-}
-
-.nav-button:hover {
-  background-color: $dark-orange;
-}
-
-#bottom-nav-button {
-  background-color: #66AEF3;
-  border-bottom: 1px solid darken(white, 60%);
-}
-
-#bottom-nav-button:hover {
-  background-color: darken(#66AEF3, 10%);
-}
-
-.middle-buttons {
-  width: 100%;
-  height: 32px;
-  margin-bottom: 13px;
-}
-
-@mixin mid-buttons {
-  float: left;
-  height: 32px;
-  width: 48%;
-  border: 1px solid darken(white, 60%);
-  padding-top: 12px;
-}
-
-.middle-button-1 {
-  @include mid-buttons;
-  border-right: none;
-  background-color: $green;
-}
-
-.middle-button-1:hover {
-  background-color: $dark-green;
-}
-
-.middle-button-2 {
-  @include mid-buttons;
-  background-color: darken(#E0C4EA, 10%);
-}
-
-.middle-button-2:hover {
-  background-color: darken(#E0C4EA, 20%);
-}
-
-#button-text {
-  color: $black;
+#nav-link:hover {
+  color: $light-purple;
 }

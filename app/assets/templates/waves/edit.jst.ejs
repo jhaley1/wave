@@ -1,4 +1,15 @@
 <script>
+  $(function(){
+  	$(window).load(function(){ // On load
+  		$('.wavebox-container .wavebox-content').css({'height':(($(window).height()))+'px'});
+  	});
+  	$(window).resize(function(){ // On resize
+  		$('.wavebox-container .wavebox-content').css({'height':(($(window).height()))+'px'});
+  	});
+  });
+</script>
+
+<script>
   $(function () {
     Pusher.log = function(message) {
       if (window.console && window.console.log) {
@@ -11,7 +22,7 @@
     var channel = pusher.subscribe(channelName);
     channel.bind('updated', function(data) {
       //callback where i can update title/content (empty/val)
-      console.log(data);
+      
     });
     
     $(".save").on("click", function (event) {
@@ -40,7 +51,8 @@
         name="wave[title]" 
         placeholder="title"
         value="<%= thisWave.get('title') %>">
-      <textarea name="wave[content]"><%= thisWave.get('content') %></textarea>
+      <textarea id="wave-content" name="wave[content]"
+        data-provide="markdown-editable"><%= thisWave.get('content') %></textarea>
       
       <div class="wave-form-buttons">
         <div class="save-button">
@@ -65,7 +77,6 @@
     
     <div class="add-to-wave">
       <h2>Add to wave</h2>
-      
       <form class="friend-search-box">
         <input type="text" 
           data-provide="typeahead" 
