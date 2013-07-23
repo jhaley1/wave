@@ -25,7 +25,7 @@
       
     });
     
-    $(".save").on("click", function (event) {
+    $(".wave").keyup(function (event) {
       event.preventDefault();
       var valuesToSubmit = $(".wave").serialize();
       var thisWaveId = $("#js-wave-id").val();
@@ -51,18 +51,17 @@
         name="wave[title]" 
         placeholder="title"
         value="<%= thisWave.get('title') %>">
-      <textarea id="wave-content" name="wave[content]"
-        data-provide="markdown-editable"><%= thisWave.get('content') %></textarea>
+      <textarea id="wave-content" name="wave[content]"><%= thisWave.get('content') %></textarea>
       
       <div class="wave-form-buttons">
         <div class="save-button">
           <button class="button save">Save</button>
         </div>
-        <div class="back-button">
-          <button class="button" id="back">Back</button>
-        </div>
       </div>
     </form>
+    <div class="back-button">
+      <button class="button" id="back">Back</button>
+    </div>
   </div>
   
   <div class="wavebox-contacts">
@@ -86,6 +85,12 @@
           placeholder="Friend's name">
   
         <button class="friend-search-submit">+</button>
+      </form>
+      
+      <form class="add-user-to-wave">
+        <input type="submit" 
+          id="submit-wave-to-user"
+          style="visibility:hidden">
       </form>
     </div>
   </div>

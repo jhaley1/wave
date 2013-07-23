@@ -41,7 +41,7 @@ h2, h3, h4, h5 {
 
 #wave-content {
   @include input-types;
-  height: 650px;
+  height: 100px;
   width: 95%;
   padding: 4px;
   resize: none;
@@ -102,7 +102,7 @@ h2, h3, h4, h5 {
 }
 
 ul {
-  margin-left: -20px;
+  margin-left: 10px;
 }
 
 li {

@@ -12,7 +12,6 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
   },
   
   render: function () {
-    console.log(this.model);
     var renderedContent = this.template({
       waves: this.collection,
       thisWave: this.model
@@ -37,13 +36,15 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     var email = userObj.email;
     
     $(function () {
-      $(".wave").append(
+      $(".add-user-to-wave").append(
         "<input type='hidden' name='wave[friend_ids][]' value='" + id + "'>"
       );
     
       $(".in-wave ul").append(
         "<li><span class='friends-shared'>" + email + "</span></li>"
       );
+      
+      $(".add-user-to-wave").trigger('click');
       
       $("#search-friends").val("");
     });  
