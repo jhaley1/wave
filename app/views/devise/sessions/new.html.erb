@@ -1,17 +1,68 @@
-<h2>Sign in</h2>
+<div class="splash-container">
+  <div class="splash-header">
+    <div class="splash-header-menu">
+      <div class="header-links">
+        <span class="header-menu-link">Link</span>| 
+        <span class="header-menu-link">Link</span>| 
+        <span class="header-menu-link">Link</span>|
+        <span class="header-menu-link">Link</span>|
+        <span class="header-menu-link">Link</span>|
+        <span class="header-menu-link">Link</span>
+      </div>
+      
+      <div class="header-log-in">
+        
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <div id="log-in-email">
+            <%= f.email_field :email, :placeholder => "email", :id => "email-field" %>
+            
+            <div id="checkbox-style">
+              <% if devise_mapping.rememberable? %>
+                <div id="checkbox">
+                  <%= f.check_box :remember_me %>
+                </div>
+                <div id="checkbox-text">
+                  <%= f.label :remember_me %>
+                </div>
+              </div>
+            <% end -%>
+          </div>
+          
+          <div id="log-in-password">
+            <%= f.password_field :password, :placeholder => "password", :id => "password-field" %>
+            <br>
+            <%= render "devise/shared/links" %>
+          </div>
+          
+          
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+          <%= f.submit "Sign in", :class => "sign-in-button" %>
+        <% end %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+        
+        
+      </div>
+    </div>
+    
+    
+    
+    <div class="splash-header-logo">
+      <img src="/assets/gull.png" class="logo" /> <span id="wavly-title">Wavly</span>
+    </div>
+    
+    <div class="splash-header-subtitle">
+      <span id="wavly-subtitle">Collaborative typy type stuff.</span>
+    </div>
+    
+    <div class="splash-header-sign-up">
+      <%= button_to "Sign up", 
+        new_user_registration_url,
+        :method => "get", 
+        :class => "sign-up-button" %>
+    </div>
+  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+</div>

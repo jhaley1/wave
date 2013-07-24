@@ -5,8 +5,7 @@ class WavesController < ApplicationController
     @wave = current_user.waves.build(params[:wave])
     
     if @wave.save
-      Pusher[params[:wave][:title]]
-        .trigger('created', @wave.to_json )
+      Pusher['meow'].trigger('created', @wave.to_json)
       
       render :json => @wave
     else
@@ -18,9 +17,7 @@ class WavesController < ApplicationController
     @wave = current_user.waves.find(params[:id])
     
     if @wave.destroy
-      Pusher[params[:wave][:title]]
-        .trigger('destroyed', 
-          { :id => params[:id] })
+      Pusher['meow'].trigger('destroyed', { :id => params[:id] })
       
       render :json => @wave
     else
@@ -53,11 +50,10 @@ class WavesController < ApplicationController
   end
   
   def update
-    @wave = Wave.find(params[:id])
+    @wave = Wave.find(params[:id].to_s)
     
     if @wave.update_attributes(params[:wave])
-      Pusher[params[:wave][:title]]
-        .trigger('updated', @wave.to_json)
+      Pusher['meow'].trigger('updated', @wave.to_json)
       
       render :json => @wave
     else

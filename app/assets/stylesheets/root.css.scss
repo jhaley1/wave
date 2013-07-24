@@ -60,8 +60,10 @@ hr {
 }
 
 * {
-  font-family: "HelveticaNeue";
-  -moz-font-family: "Helvetica";
+  font-family: "BentonSans", "HelveticaNeue", "Helvetica", sans-serif;
+  -moz-font-family: "BentonSans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 200;
   color: $black;
 }
 

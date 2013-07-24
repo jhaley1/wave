@@ -28,6 +28,11 @@
     
     <div class="sidebar">
       <div class="sidebar-content">
+        <div id="test-1">
+          <%= button_to "Sign out", 
+            destroy_user_session_url, 
+            :method => "delete", 
+            :class => "log-out-button" %>
         <h1>Navigation</h1>
         <hr>
         <ul>

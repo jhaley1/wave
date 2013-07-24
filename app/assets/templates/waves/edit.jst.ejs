@@ -18,17 +18,19 @@
     };
 
     var pusher = new Pusher('1a5bf2d16cdc6eef2287');
-    var channelName = $('#wave-title').val();
+    var thisWaveId = $("#js-wave-id").val();
+    var channelName = 'meow';
     var channel = pusher.subscribe(channelName);
+    
     channel.bind('updated', function(data) {
-      //callback where i can update title/content (empty/val)
-      
+      console.log(data);
+      $("#wave-title").empty().val(data.title);
+      $("#wave-content").empty().val(data.content);
     });
     
     $(".wave").keyup(function (event) {
       event.preventDefault();
       var valuesToSubmit = $(".wave").serialize();
-      var thisWaveId = $("#js-wave-id").val();
       
       $.ajax({
         url: "/waves/" + thisWaveId,
@@ -51,7 +53,9 @@
         name="wave[title]" 
         placeholder="title"
         value="<%= thisWave.get('title') %>">
-      <textarea id="wave-content" name="wave[content]"><%= thisWave.get('content') %></textarea>
+      <textarea id="wave-content" 
+        name="wave[content]">
+<%= thisWave.get('content') %></textarea>
       
       <div class="wave-form-buttons">
         <div class="save-button">

@@ -12,11 +12,15 @@ $light-purple: #C7C0DE;
 h1 {
   color: white;
   font-weight: normal;
+  font-family: "BentonSans", "HelveticaNeue", "Helvetica", sans-serif;
+  -moz-font-family: "BentonSans", Helvetica, sans-serif;
 }
 
 h2, h3, h4, h5 {
   color: $purple;
   font-weight: none;
+  font-family: "BentonSans", "HelveticaNeue", "Helvetica", sans-serif;
+  -moz-font-family: "BentonSans", Helvetica, sans-serif;
 }
 
 @mixin input-types {
