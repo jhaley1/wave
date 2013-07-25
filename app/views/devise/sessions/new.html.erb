@@ -2,50 +2,39 @@
   <div class="splash-header">
     <div class="splash-header-menu">
       <div class="header-links">
-        <span class="header-menu-link">Link</span>| 
-        <span class="header-menu-link">Link</span>| 
-        <span class="header-menu-link">Link</span>|
-        <span class="header-menu-link">Link</span>|
-        <span class="header-menu-link">Link</span>|
-        <span class="header-menu-link">Link</span>
+        <span class="header-menu-link">Link</span><span id="separator">|</span> 
+        <span class="header-menu-link">Link</span><span id="separator">|</span> 
+        <span class="header-menu-link">Link</span><span id="separator">|</span>
+        <span class="header-menu-link">Link</span><span id="separator">|</span>
+        <span class="header-menu-link">Link</span><span id="separator">|</span>
       </div>
       
       <div class="header-log-in">
         
         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-          <div id="log-in-email">
+          <div id="log-in-fields">
             <%= f.email_field :email, :placeholder => "email", :id => "email-field" %>
-            
+            <%= f.password_field :password, :placeholder => "password", :id => "password-field" %>
+            <%= f.submit "Sign in", :class => "sign-in-button" %>
+          </div>
+          
+          <div id="log-in-extras">
             <div id="checkbox-style">
               <% if devise_mapping.rememberable? %>
                 <div id="checkbox">
                   <%= f.check_box :remember_me %>
                 </div>
                 <div id="checkbox-text">
-                  <%= f.label :remember_me %>
+                  <%= f.label :remember_me, :id => 'checkbox-text-style' %>
                 </div>
               </div>
             <% end -%>
-          </div>
-          
-          <div id="log-in-password">
-            <%= f.password_field :password, :placeholder => "password", :id => "password-field" %>
-            <br>
             <%= render "devise/shared/links" %>
           </div>
-          
-          
-
-          <%= f.submit "Sign in", :class => "sign-in-button" %>
         <% end %>
-
-        
-        
       </div>
     </div>
-    
-    
-    
+
     <div class="splash-header-logo">
       <img src="/assets/gull.png" class="logo" /> <span id="wavly-title">Wavly</span>
     </div>
@@ -61,8 +50,5 @@
         :class => "sign-up-button" %>
     </div>
   </div>
-
-
-
 
 </div>

@@ -13,30 +13,66 @@ $light-purple: #C7C0DE;
   border-radius: 4px;
 }
 
+.splash-container {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .splash-header-menu {
   height: 10px;
   text-align: center;
   margin-top: 10px;
   color: $light-purple;
   font-size: 20px;
+  margin-left: 19%;
 }
 
 .header-links, .header-log-in {
   float: left;
 }
 
-#log-in-email, #log-in-password {
-  float: left;
+#separator {
+  color: $light-purple;
+  font-size: 18px;
+}
+
+
+.header-log-in {
+  padding-left: 23px;
+}
+
+#log-in-fields {
+  height: 20px;
 }
 
 #password-field, #email-field {
-  
+  border: none;
+  height: 16px;
+  width: 140px;
+}
+
+#forgot-password-link {
+  font-size: 12px;
+  margin-top: 5px;
+  color: $light-purple;
+  float: left;
+  margin-left: 65px;
+}
+
+#forgot-password-link:hover {
+  color: white;
 }
 
 .sign-in-button {
   @include splash-button-style;
   padding-left: 12px;
   padding-right: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  height: 24px;
 }
 
 .sign-in-button:hover {
@@ -51,12 +87,22 @@ $light-purple: #C7C0DE;
   float: left;
 }
 
+#checkbox-text {
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
+#checkbox-text-style {
+  color: $light-purple;
+  font-size: 12px;
+}
+
 .header-menu-link {
   padding-right: 23px;
   padding-left: 23px;
   color: $light-purple;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .header-menu-link:hover {
@@ -64,7 +110,7 @@ $light-purple: #C7C0DE;
 }
 
 .splash-header {
-  height: 400px;
+  height: 460px;
   background-color: $purple;
   position: absolute;
   top: 0;
@@ -73,7 +119,7 @@ $light-purple: #C7C0DE;
 
 .splash-header-logo {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 130px;
 }
 
 .logo {

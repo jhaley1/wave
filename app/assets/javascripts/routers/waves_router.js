@@ -14,7 +14,7 @@ Wavly.Routers.Waves = Backbone.Router.extend({
     var indexView = new Wavly.Views.WavesIndex ({
       collection: Wavly.waves
     });
-    
+
     this._swapView(indexView);
   },
   
