@@ -1,37 +1,69 @@
-<script>
-  $(function () {
-    Pusher.log = function(message) {
-      if (window.console && window.console.log) {
-        window.console.log(message);
-      }
-    };
-
-    var pusher = new Pusher('1a5bf2d16cdc6eef2287');
-    var channelName = $('#wave-title').val();
-    var channel = pusher.subscribe(channelName);
-    channel.bind('created', function(data) {
-      //callback where i can update title/content (empty/val)
-      console.log(data);
-    });
+<div class="lightbox-content">
+  <form class="new-wave">
     
-    $(".save").on("click", function (event) {
-      event.preventDefault();
-      var valuesToSubmit = $(".wave").serialize();
+    <input type="text" 
+      id="new-wave-title" 
+      name="wave[title]" 
+      placeholder="Wave title">
       
-      $.ajax({
-        url: "/waves",
-        type: "POST",
-        data: valuesToSubmit
-      });
+    <% var newWaveMessage = "Enter a really cool and interesting message to your wave participants here"; %>
+      
+    <textarea id="new-wave-content" 
+      name="wave[content]"
+      placeholder="<%= newWaveMessage %>" rows="4"></textarea>
+      
+    <form class="friend-search-box">
+      <input type="text" 
+        data-provide="typeahead" 
+        autocomplete="off" 
+        class="typeahead"
+        id="search-friends"
+        placeholder="Friend's name">
+
+      <button class="wave-button">+</button>
+    </form>
+    
+    <div class="in-wave">
+      <ul></ul>
+    </div>
+    
+    <input type="submit" class="wave-button save" value="Create">
+    
+    <button class="wave-button back">Cancel</button>
+  </form>
+</div>
+
+<script>
+  var all_users = JSON.parse($("#all_users_json").html());
+  
+  $(function() {
+    var typeAhead = {};
+  
+    typeAhead.Person = Backbone.Model.extend({});
+
+    typeAhead.People = Backbone.Collection.extend({
+      model: typeAhead.Person
     });
+
+    dataset = [];
+    
+    _(all_users).each(function (user) {
+      dataset.push(user)
+    });
+
+  	$(".typeahead").typeahead({
+      source: function (query, process) {
+        userObjs = {};
+        userEmails = [];
+
+        _.each(dataset, function(item, ix, list) {
+          userEmails.push(item.email);
+      
+          userObjs[item.email] = item;
+        });
+    
+        process(userEmails);
+      }
+  	});
   });
 </script>
-
-<form class="wave">
-  <input type="text" 
-    id="wave-title"
-    name="wave[title]" 
-    placeholder="title">
-  <textarea name="wave[content]"></textarea>
-  <button class="button save">Save</button>
-</form>

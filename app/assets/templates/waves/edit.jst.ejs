@@ -72,7 +72,6 @@
     <div class="in-wave">
       <h2>In wave</h2>
       <ul>
-        <% console.log(thisWave)%>
         <% _(thisWave.get('friends')).each(function (friend) { %>
           <li><%= friend.escape('email') %></li>
         <% }); %>

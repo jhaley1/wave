@@ -1,5 +1,5 @@
 class Wave < ActiveRecord::Base
-  attr_accessible :title, :content, :user_id, :friend_ids
+  attr_accessible :title, :content, :user_id, :friend_ids, :confirmed
 
   belongs_to :user
   

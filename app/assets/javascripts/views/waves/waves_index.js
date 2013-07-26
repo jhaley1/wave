@@ -19,16 +19,7 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
   newWave: function (event) {
     event.preventDefault();
     
-    Backbone.history.navigate("waves/new", { trigger: true });
-  },
-  
-  viewWave: function (event) {
-    console.log(event.currentTarget.className);
-    var waveId = event.currentTarget.className;
-    
-    event.preventDefault();
-    
-    Backbone.history.navigate("waves/" + waveId, { trigger: true });
+    $(".wave-container").append("<div class='lightbox'>" + JST['waves/new']() + "</div>");
   }
 
 });
