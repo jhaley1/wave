@@ -11,8 +11,11 @@
     <textarea id="new-wave-content" 
       name="wave[content]"
       placeholder="<%= newWaveMessage %>" rows="4"></textarea>
+      <div class="added-to-wave">
       
-    <form class="friend-search-box">
+      </div>
+    
+    <form class="friend-add-box">
       <input type="text" 
         data-provide="typeahead" 
         autocomplete="off" 
@@ -20,12 +23,9 @@
         id="search-friends"
         placeholder="Friend's name">
 
-      <button class="wave-button">+</button>
+      <button class="wave-button" id="friend-add-button">+</button>
     </form>
     
-    <div class="in-wave">
-      <ul></ul>
-    </div>
     
     <input type="submit" class="wave-button save" value="Create">
     

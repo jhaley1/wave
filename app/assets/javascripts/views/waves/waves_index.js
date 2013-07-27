@@ -4,6 +4,7 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
   
   events: {
     "click button#js-new-wave": "newWave",
+    "click #friend-add-button": "shareWave",
   },
   
   render: function () {
@@ -19,7 +20,29 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
   newWave: function (event) {
     event.preventDefault();
     
-    $(".wave-container").append("<div class='lightbox'>" + JST['waves/new']() + "</div>");
-  }
+    $(".wave-content").append("<div class='lightbox'>" + JST['waves/new']() + "</div>");
+  },
+  
+  shareWave: function (event) {
+    event.preventDefault();
+    
+    var ev = $("ul.typeahead.dropdown-menu").find('li.active').data('value');
+    var userObj = userObjs[ev];
+    var id = userObj.id;
+    var email = userObj.email;
+    
+    $(function () {
+      $(".wave-participants").append(
+        "<input type='hidden' name='wave[friend_ids][]' value='" + id + "'>"
+      );
+    
+      $(".added-to-wave").append(
+        "<span class='friends-shared'>" + email + "</span>"
+      );
+      
+      $("#search-friends").val("");
+    });
+  },
+
 
 });

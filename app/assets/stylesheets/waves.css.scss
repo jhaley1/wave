@@ -237,7 +237,7 @@ li {
 	bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
   animation: fadein 1s;
   -moz-animation: fadein 1s; // Firefox
   -webkit-animation: fadein 1s; // Safari and Chrome
@@ -265,7 +265,7 @@ li {
   margin-left: 24.5%;
   margin-top: 14%;
   width: 23%;
-  height: 164px;
+  height: 280px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   border-radius: 7px;
@@ -286,4 +286,42 @@ li {
 #new-wave-content {
   width: 95%;
   resize: none;
+}
+
+.friend-add-box {
+  height: 10px;
+  width: 100%;
+}
+
+.added-to-wave {
+  padding-bottom: 4px;
+  height: 1px;
+}
+
+#search-friends {
+  height: 15px;
+  font-size: 12px;
+}
+
+.friend-add-submit {
+  color: white;
+  font-weight: bold;
+  background-color: $purple;
+
+  border: none;
+  text-align: center;
+  width: 15%;
+  height: 100%;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.friend-add-submit:hover {
+  background-color: lighten($purple, 10%);
+};
+
+#friend-add-button {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
