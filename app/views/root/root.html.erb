@@ -23,6 +23,10 @@
   <%= current_user.waves.to_json.html_safe %>
 </script>
 
+<!--script type ="application/json" id="unconfirmed_waves_json">
+  <%#= current_user.waves.where("confirmed = 'false'").to_json.html_safe %>
+</script-->
+
 <div class="container">
   <div class="container-row">
     
