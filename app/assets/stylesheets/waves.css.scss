@@ -296,32 +296,44 @@ li {
 .added-to-wave {
   padding-bottom: 4px;
   height: 1px;
+  color: white;
 }
 
 #search-friends {
-  height: 15px;
-  font-size: 12px;
+  height: 22px;
+  font-size: 14px;
 }
 
-.friend-add-submit {
-  color: white;
+#friend-add-button {
+  color: $purple;
   font-weight: bold;
-  background-color: $purple;
+  background-color: $light-purple;
+  font-size: 16px;
 
   border: none;
   text-align: center;
-  width: 15%;
-  height: 100%;
+  width: 40px;
+  height: 30px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-}
-
-.friend-add-submit:hover {
-  background-color: lighten($purple, 10%);
-};
-
-#friend-add-button {
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.friends-added {
+  color: white;
+}
+
+#friend-add-button:hover {
+  background-color: white;
+};
+
+.back, .save {
+  float: bottom;
+  height: 26px;
+}
+
+.friend-add-input, .friend-add-plus {
+  float: left;
 }

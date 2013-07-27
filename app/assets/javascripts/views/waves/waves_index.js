@@ -5,6 +5,7 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
   events: {
     "click button#js-new-wave": "newWave",
     "click #friend-add-button": "shareWave",
+    "click button.back": "closeNewWave",
   },
   
   render: function () {
@@ -15,6 +16,12 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
     this.$el.html(renderedContent);
     
     return this;
+  },
+  
+  closeNewWave: function (event) {
+    event.preventDefault();
+    
+    $(".lightbox").remove();
   },
   
   newWave: function (event) {
@@ -37,7 +44,7 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
       );
     
       $(".added-to-wave").append(
-        "<span class='friends-shared'>" + email + "</span>"
+        "<span class='friends-added'>" + email + "</span>"
       );
       
       $("#search-friends").val("");

@@ -3,7 +3,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
   template: JST['waves/edit'],
   
   events: {
-    "button #back": "back",
+    "click button#back-to-waves": "back",
     "click .friend-search-submit": "shareWave",
   },
   
@@ -24,6 +24,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
   
   back: function (event) {
     event.preventDefault();
+    
     Wavly.router.navigate("#/", { trigger: true });
   },
   
