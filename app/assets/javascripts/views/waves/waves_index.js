@@ -5,6 +5,7 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
   events: {
     "click button#js-new-wave": "newWave",
     "click button.back": "closeNewWave",
+    "click button.wave-delete": "deleteWave",
     "click #save-wave": "saveWave",
     "click #friend-add-button": "shareWave",
   },
@@ -23,6 +24,20 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
     event.preventDefault();
     
     $(".lightbox").remove();
+  },
+  
+  deleteWave: function (event) {
+    event.preventDefault();
+    
+    var _model = this.collection.get(event.target.id);
+    
+    var options = {
+      success: function () {
+        Backbone.history.navigate("#/", { trigger: true });
+      }
+    };
+
+    _model.destroy(options);
   },
   
   newWave: function (event) {

@@ -19,15 +19,9 @@ class WavesController < ApplicationController
   
   def destroy
     @wave = current_user.waves.find(params[:id])
+    current_user.waves.delete(@wave)
     
-    if @wave.destroy
-      Pusher['meow']
-        .trigger_async('destroyed', { :id => params[:id] })
-      
-      render :json => @wave
-    else
-      render :json => @wave.errors.full_messages
-    end
+    render :json => @wave
   end
   
   def edit
