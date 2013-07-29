@@ -4,8 +4,9 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
   
   events: {
     "click button#js-new-wave": "newWave",
-    "click #friend-add-button": "shareWave",
     "click button.back": "closeNewWave",
+    "click #save-wave": "saveWave",
+    "click #friend-add-button": "shareWave",
   },
   
   render: function () {
@@ -28,6 +29,32 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
     event.preventDefault();
     
     $(".wave-content").append("<div class='lightbox'>" + JST['waves/new']() + "</div>");
+  },
+  
+  saveWave: function (event) {
+    event.preventDefault();
+    var that = this;
+    
+    var attrs = $(event.target.form).serializeJSON();
+    var options = {
+      success: function () {
+        Backbone.history.navigate("#waves/" + that.model.id + "/edit",
+         { trigger: true });
+      },
+      error: function (model, response) {
+        $(function () {
+          $("#content").prepend("<div class='alert alert-error'><a class='close' data-dismiss='alert'>×</a>" + response.responseText + "</div>")
+        });
+      }
+    };
+
+    this.model.set(attrs);
+
+    if (this.model.isNew()) {
+      this.collection.create(this.model, options);
+    } else {
+      this.model.save({}, options);
+    }
   },
   
   shareWave: function (event) {

@@ -8,6 +8,7 @@ $black: #2D2D2D;
 $white: darken(white, 60%);
 $purple: #58488A;
 $light-purple: #C7C0DE;
+$gray: #D1D0D7;
 
 @mixin new-wave-button-style {
   border: none;
@@ -38,6 +39,7 @@ h2, h3, h4, h5 {
 
 .wave-content {
   margin: 10px;
+  overflow-y: scroll;
 }
 
 #wave-title {
@@ -99,13 +101,17 @@ h2, h3, h4, h5 {
 };
 
 .wave-link {
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 2px;
   width: 90%;
-  height: 10px;
+  height: 20px;
   color: $purple;
+  border-bottom: 1px solid $gray;
 }
 
 .wave-link:hover {
-  color: $purple;
+  color: lighten($purple, 15%);
 }
 
 .wavebox-container {
@@ -336,4 +342,15 @@ li {
 
 .friend-add-input, .friend-add-plus {
   float: left;
+}
+
+.wave-remove {
+  padding-bottom: 2px;
+  padding-top: 2px;
+  float: left;
+}
+
+.wave-delete {
+  height: 27px;
+  width: 30px;
 }

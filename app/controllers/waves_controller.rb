@@ -6,7 +6,6 @@ class WavesController < ApplicationController
       id: params[:wave][:id],
       title: params[:wave][:title],
       content: params[:wave][:content],
-      friends: params[:wave][:friend_ids][],
       confirmed: true,
       user_id: params[:wave][:user_id]
     })

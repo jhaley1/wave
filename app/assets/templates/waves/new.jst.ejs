@@ -1,5 +1,5 @@
 <div class="lightbox-content">
-  <form class="new-wave">
+  <form class="new-wave" id="new-wave">
     
     <input type="text" 
       id="new-wave-title" 
@@ -11,9 +11,10 @@
     <textarea id="new-wave-content" 
       name="wave[content]"
       placeholder="<%= newWaveMessage %>" rows="4"></textarea>
-      <div class="added-to-wave">
       
-      </div>
+    <div class="added-to-wave">
+    
+    </div>
     
     <form class="friend-add-box">
       <div id="friend-add-input">
@@ -30,7 +31,11 @@
     </form>
     
     
-    <input type="submit" class="wave-button save" value="Create">
+    <input type="submit" 
+      class="wave-button save" 
+      id="save-wave"
+      value="Create"
+      form="new-wave">
     
     <button class="wave-button back">Cancel</button>
   </form>

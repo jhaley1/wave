@@ -45,20 +45,16 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
         "<li><span class='friends-shared'>" + email + "</span></li>"
       );
 
-        var thisWaveId = $("#js-wave-id").val();
-        var valuesToSubmit = $(".add-user-to-wave").serialize();
-        console.log('hi')
-        $.ajax({
-          url: "/waves/" + thisWaveId,
-          type: "PUT",
-          data: valuesToSubmit
-        });
-        
-        console.log('there')
+      var thisWaveId = $("#js-wave-id").val();
+      var valuesToSubmit = $(".add-user-to-wave").serialize();
+      $.ajax({
+        url: "/waves/" + thisWaveId,
+        type: "PUT",
+        data: valuesToSubmit
       });
-      
-      $("#search-friends").val("");
-
-  },
+    });
+    
+    $("#search-friends").val("");
+},
 
 });
