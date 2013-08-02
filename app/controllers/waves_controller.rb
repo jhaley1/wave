@@ -25,9 +25,10 @@ class WavesController < ApplicationController
   end
   
   def edit
+    debugger
     @wave = Wave.find(params[:id])
     
-    render :json => @wave, :includes => :friends
+    render :json => @wave.to_json(:include => :friends)
   end
   
   def index

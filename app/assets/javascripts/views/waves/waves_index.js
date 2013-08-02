@@ -5,7 +5,7 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
   events: {
     "click button#js-new-wave": "newWave",
     "click button.back": "closeNewWave",
-    "click button.wave-delete": "deleteWave",
+    "click .wave-delete": "deleteWave",
     "click #save-wave": "saveWave",
     "click #friend-add-button": "shareWave",
   },
