@@ -38,7 +38,8 @@ h2, h3, h4, h5 {
 }
 
 .wave-content {
-  margin: 10px;
+  margin-left: 10px;
+  width: 90%;
   overflow-y: scroll;
 }
 
@@ -241,7 +242,7 @@ li {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-  left: 0;
+  left: 20%;
   right: 0;
   background-color: rgba(255, 255, 255, 0.5);
   animation: fadein 1s;
@@ -335,7 +336,7 @@ li {
   background-color: white;
 };
 
-.back, .save {
+.back, #save-button {
   float: bottom;
   height: 26px;
 }

@@ -15,7 +15,7 @@
 //= require jquery.serializeJSON.min
 //= require underscore
 //= require backbone
-//= require peer
+//= require backbone-relational
 //= require pusher.min
 //= require bootstrap
 //= require bootstrap-markdown

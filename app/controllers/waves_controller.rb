@@ -2,13 +2,7 @@ class WavesController < ApplicationController
   respond_to :json
   
   def create
-    @wave = current_user.waves.build({ 
-      id: params[:wave][:id],
-      title: params[:wave][:title],
-      content: params[:wave][:content],
-      confirmed: true,
-      user_id: params[:wave][:user_id]
-    })
+    @wave = current_user.waves.build(params[:wave])
     
     if @wave.save
       render :json => @wave
@@ -25,10 +19,9 @@ class WavesController < ApplicationController
   end
   
   def edit
-    debugger
     @wave = Wave.find(params[:id])
     
-    render :json => @wave.to_json(:include => :friends)
+    render :edit
   end
   
   def index
@@ -38,7 +31,7 @@ class WavesController < ApplicationController
       @waves = current_user.waves
     end
     
-    render :json => @waves
+    render :index
   end
   
   def new
@@ -58,7 +51,7 @@ class WavesController < ApplicationController
       Pusher['meow']
         .trigger_async('updated', @wave.to_json)
       
-      render :json => @wave, :includes => :friends
+      render :json => @wave
     else
       render :json => @wave.errors.full_messages
     end

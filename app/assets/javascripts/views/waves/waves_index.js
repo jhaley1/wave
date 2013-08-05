@@ -43,7 +43,7 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
   newWave: function (event) {
     event.preventDefault();
     
-    $(".wave-content").append("<div class='lightbox'>" + JST['waves/new']() + "</div>");
+    $("#wave-main").append("<div class='lightbox'>" + JST['waves/new']() + "</div>");
   },
   
   saveWave: function (event) {
@@ -81,12 +81,12 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
     var email = userObj.email;
     
     $(function () {
-      $(".wave-participants").append(
+      $(".new-wave").append(
         "<input type='hidden' name='wave[friend_ids][]' value='" + id + "'>"
       );
     
       $(".added-to-wave").append(
-        "<span class='friends-added'>" + email + "</span>"
+        "<span class='friends-added'>" + email + "</span><br>"
       );
       
       $("#search-friends").val("");

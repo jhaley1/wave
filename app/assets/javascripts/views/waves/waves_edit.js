@@ -5,6 +5,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
   events: {
     "click button#back-to-waves": "back",
     "click .friend-search-submit": "shareWave",
+    "click #save-button": "createVersion",
   },
   
   initialize: function () {
@@ -26,6 +27,25 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     event.preventDefault();
     
     Wavly.router.navigate("#/", { trigger: true });
+  },
+  
+  createVersion: function (event) {
+    event.preventDefault();
+    
+    var _version = new Wavly.Models.Version ();
+    var attrs = $('.wave').serializeJSON();
+    var _wave = Wavly.waves.get(attrs.wave.id);
+    
+
+    var options = {
+      success: function (model, response) {
+        console.log(success);
+      }
+    };
+
+    _version.set(attrs);
+    _wave.get('versions').add(_version);
+    _version.save({}, options);
   },
   
   shareWave: function (event) {

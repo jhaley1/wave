@@ -1,18 +1,19 @@
-<button class="button" id="js-new-wave">New Wave</button>
-Wave Name Last Edit Last Editor
-<div class="wave-content">
-  <% waves.each(function (wave) { %>
-    <a href="#/waves/<%= wave.get('id') %>/edit">
-      <div class="wave-link">
-        <%= wave.escape("title") %>
-      </div>  
-      <div class="wave-remove">
-        <button class="wave-delete button" id="<%= wave.escape('id') %>">
-          <i class="icon icon-remove icon-white"></i>
-        </button>
-      </div>
-    </a>
-
-    <br>
-  <% }); %>
+<div id="wave-main">
+  <button class="button" id="js-new-wave">New Wave</button>
+  Wave Name Last Edit Last Editor
+  <div class="wave-content">
+    <% waves.each(function (wave) { %>
+      <a href="#/waves/<%= wave.get('id') %>/edit">
+        <div class="wave-link">
+          <%= wave.escape("title") %>
+        </div>  
+        <div class="wave-remove">
+          <button class="wave-delete button" id="<%= wave.escape('id') %>">
+            <i class="icon icon-remove icon-white"></i>
+          </button>
+        </div>
+      </a>
+      <br>
+    <% }); %>
+  </div>
 </div>
