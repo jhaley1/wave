@@ -18,12 +18,17 @@ $light-purple: #C7C0DE;
   overflow-y: scroll;
 }
 
-hr {
+h4 {
+  color: white;
+}
+
+.separator {
   height: 0px;
   line-height: 0px;
   margin-left: 0px;
   border-bottom: 1px solid white;
   width: 95%;
+  margin-bottom: 5px;
 }
 
 .sidebar {
@@ -34,6 +39,7 @@ hr {
   height: 100%;
   left: 0;
   color: $light-purple;
+  overflow-y: auto;
 }
 
 .sidebar-content {
@@ -42,8 +48,13 @@ hr {
   padding-top: 0px;
   top: 0;
   height: 100%;
-  width: 100%;
+  width: 95%;
+  font-size: 14px;
   background-color: $purple;
+  
+  ul {
+    color: darken(white, 15%);
+  }
 }
 
 .container {

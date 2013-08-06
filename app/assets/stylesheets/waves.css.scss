@@ -25,7 +25,7 @@ h1 {
   -moz-font-family: "BentonSans", Helvetica, sans-serif;
 }
 
-h2, h3, h4, h5 {
+h2, h3, h5 {
   color: $purple;
   font-weight: none;
   font-family: "BentonSans", "HelveticaNeue", "Helvetica", sans-serif;
@@ -56,7 +56,7 @@ h2, h3, h4, h5 {
 
 #wave-content {
   @include input-types;
-  height: 100px;
+  height: 300px;
   width: 95%;
   padding: 4px;
   resize: none;
@@ -116,13 +116,13 @@ h2, h3, h4, h5 {
 }
 
 .wavebox-container {
-  height: 100%;
+  height: 400px;
   width: 100%;
 }
 
 .wavebox-content {
   width: 55%;
-  height: 100%;
+  height: 300px;
   float: left;
   display: block;
 }
@@ -150,53 +150,13 @@ li {
   height: 340px;
 }
 
-.wavebox-robots {
-  float: left;
-  width: 25%;
-  height: 100%;
-  display: block;
-  margin-top: 10px;
-}
-
-@mixin robot-boxes {
-  border: 1px solid $white;
-  width: 84%;
-  padding: 10px;
-  height: 340px;
-  text-align: center;
-}
-
-.robot-1 {
-  @include robot-boxes;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.robot-2 {
-  @include robot-boxes;
-  text-align: center;
-}
-
-.robot-1:hover, .robot-2:hover {
-  background-color: darken(white, 2%);
-}
-
-.place-robot-text {
-  display: block;
-  margin-top: 50%;
-}
-
 .wave-form-buttons {
   width: 96.5%;
 }
 
-.save-button {
+.save-button, .back-button, .commit-button, .revert-button {
   float: left;
-}
-
-.back-button {
-  float: right;
-  align: right;
+  margin-right: 5px;
 }
 
 #back {

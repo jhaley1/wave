@@ -43,8 +43,6 @@
 
 <% var wave_id = thisWave.get('id') %>
 <input type="hidden" id="js-wave-id" value="<%= wave_id %>">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-<div id="slider">a</div>
 
 <div class="wavebox-container">
   <div class="wavebox-content">
@@ -69,6 +67,27 @@
     <div class="back-button">
       <button class="button" id="back-to-waves">Back</button>
     </div>
+    <div class="revert-button">
+      <button class="button" id="revert-version">Revert</button>
+    </div>
+    <div class="commit-button">
+      <button class="button" id="commit-to-version">Commit</button>
+    </div>
+      
+  </div>
+  
+  
+  <div class="versions">
+    <h2>Versions</h2>
+    <ul>
+      <% thisWave.get('versions').each(function (version) { %>
+        <a href="#" class="version-link">
+          <li data-id="<%= version.get('id') %>">
+            <%= version.escape('save_time') %>
+          </li>
+        </a>
+      <% }); %>
+    </ul>
   </div>
   
   <div class="wavebox-contacts">

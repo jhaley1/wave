@@ -6,6 +6,9 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     "click button#back-to-waves": "back",
     "click .friend-search-submit": "shareWave",
     "click #save-button": "createVersion",
+    "click .version-link": "viewVersion",
+    "click .revert-button": "revertToCurrent",
+    "click .commit-button": "commitToVersion",
   },
   
   initialize: function () {
@@ -40,6 +43,24 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     event.preventDefault();
     
     Wavly.router.navigate("#/", { trigger: true });
+  },
+  
+  commitToVersion: function (event) {
+    event.preventDefault();
+
+    $('#wave-title')
+      .prop('readonly', false);
+    $('#wave-content')
+      .prop('readonly', false);
+      
+    var valuesToSubmit = $('.wave').serialize();
+    var thisWaveId = $('#js-wave-id').val();
+    
+    $.ajax({
+      url: '/waves/' + thisWaveId,
+      type: 'PUT',
+      data: valuesToSubmit
+    });
   },
   
   createVersion: function (event) {
@@ -87,6 +108,34 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     });
     
     $("#search-friends").val("");
-},
+  },  
+  
+  revertToCurrent: function (event) {
+    $('#wave-title')
+      .val(this.currentTitle)
+      .prop('readonly', false);
+    $('#wave-content')
+      .val(this.currentContent)
+      .prop('readonly', false);
+  },
+  
+  viewVersion: function (event) {
+    event.preventDefault();
+    
+    this.currentTitle = $('#wave-title').val();
+    this.currentContent = $('#wave-content').val();
+    
+    var thisVersionId = $(event.target).attr('data-id');
+    var theseVersions = this.model.get('versions');
+    var thisVersion;
+    var thisVersion = this.model.get('versions').get(thisVersionId);
+    
+    $('#wave-title')
+      .val(thisVersion.get('title'))
+      .prop('readonly', true);
+    $('#wave-content')
+      .val(thisVersion.get('content'))
+      .prop('readonly', true);
+  }
 
 });
