@@ -164,3 +164,44 @@ $light-purple: #C7C0DE;
 .sign-up-button:hover {
   background-color: white;
 }
+
+.splash-body {
+  width: 100%;
+  margin-top: 540px;
+  padding: 20px;
+  
+  ul {
+    margin-left: 10px;
+    color: $black;
+    list-style: circle;
+    font-size: 13px;
+  }
+  
+  li {
+    color: $black;
+    list-style: circle;
+    font-size: 13px;
+    margin-left: 20px;
+  }
+}
+
+.body-header {
+  font-size: 28px;
+  font-weight: 500px;
+  color: $purple;
+}
+
+#body-features, #body-tech, #body-about, #body-contact {
+  float: left;
+  width: 21%;
+  margin-right: 3%;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: $black;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}

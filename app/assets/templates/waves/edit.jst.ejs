@@ -87,13 +87,13 @@
           <% thisWaveCreator = user; %>
         <% } %>
       <% }); %>
-      <h2>Wave creator</h2>
+      <h2>Wave Creator</h2>
         <ul><%= thisWaveCreator.email %></ul>
         
       <div class="separator"></div>
       
       <div class="add-to-wave">
-        <h2>Add to wave</h2>
+        <h2>Add to Wave</h2>
         <form class="friend-search-box">
           <input type="text" 
             data-provide="typeahead" 
@@ -114,7 +114,7 @@
         
       <div class="separator"></div>
         
-      <h2>In wave</h2>
+      <h2>Others in Wave</h2>
       <ul>
         <% _(thisWave.get('friends')).each(function (friend) { %>
           <%= friend.email %>

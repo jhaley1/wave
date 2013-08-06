@@ -22,7 +22,7 @@ $white: darken(white, 15%);
 .separator {
   height: 0px;
   line-height: 0px;
-  margin-left: 5%;
+  margin-right: 5%;
   border-bottom: 1px solid $white;
   width: 85%;
   margin-bottom: 5px;
@@ -152,8 +152,8 @@ body {
 }
 
 .demo-accounts {
-  width: 100%;
+  width: 20%;
   text-align: center;
-  margin-left: 42.5%;
   margin-top: -20px;
+  margin-left: 42.5%;
 }
