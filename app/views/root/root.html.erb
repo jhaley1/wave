@@ -12,7 +12,7 @@
 </script>
 
 <script type ="application/json" id="all_users_json">
-  <%= User.find(:all, :conditions => ["id != ?", current_user.id]).to_json.html_safe %>
+  <%= User.all.to_json.html_safe %>
 </script>
 
 <script type="application/json" id="user_id_json">
@@ -22,10 +22,6 @@
 <script type ="application/json" id="waves_json">
   <%= current_user.waves.to_json.html_safe %>
 </script>
-
-<!--script type ="application/json" id="unconfirmed_waves_json">
-  <%#= current_user.waves.where("confirmed = 'false'").to_json.html_safe %>
-</script-->
 
 <div class="container">
   <div class="container-row">

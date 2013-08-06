@@ -23,7 +23,6 @@
     var channel = pusher.subscribe(channelName);
     
     channel.bind('updated', function(data) {
-      console.log(data);
       $("#wave-title").empty().val(data.title);
       $("#wave-content").empty().val(data.content);
     });
@@ -57,15 +56,9 @@
       <textarea id="wave-content" 
         name="wave[content]" data-provide="markdown-editable">
 <%= thisWave.get('content') %></textarea>
-      
-      <div class="wave-form-buttons">
-        <div class="save-button">
-          <button class="button" id="save-button">Save</button>
-        </div>
-      </div>
     </form>
-    <div class="back-button">
-      <button class="button" id="back-to-waves">Back</button>
+    <div class="save-button">
+      <button class="button" id="save-button">Save</button>
     </div>
     <div class="revert-button">
       <button class="button" id="revert-version">Revert</button>
@@ -73,30 +66,27 @@
     <div class="commit-button">
       <button class="button" id="commit-to-version">Commit</button>
     </div>
+    <div class="back-button">
+      <button class="button" id="back-to-waves">Back</button>
+    </div>
       
-  </div>
-  
-  
-  <div class="versions">
-    <h2>Versions</h2>
-    <ul>
-      <% thisWave.get('versions').each(function (version) { %>
-        <a href="#" class="version-link">
-          <li data-id="<%= version.get('id') %>">
-            <%= version.escape('save_time') %>
-          </li>
-        </a>
-      <% }); %>
-    </ul>
   </div>
   
   <div class="wavebox-contacts">
     <div class="in-wave">
+      <% var allUsers = JSON.parse($('#all_users_json').html()); %>
+      <% var thisWaveCreator; %>
+      <% _(allUsers).each(function (user) { %>
+        <% if (user.id == thisWave.get('user_id')) { %>
+          <% thisWaveCreator = user; %>
+        <% } %>
+      <% }); %>
       <h2>Wave creator</h2>
+        <ul><%= thisWaveCreator.email %></ul>
       <h2>In wave</h2>
       <ul>
         <% _(thisWave.get('friends')).each(function (friend) { %>
-          <li><%= friend.email %></li>
+          <%= friend.email %>
         <% }); %>
       </ul>
     </div>
@@ -120,6 +110,19 @@
           style="visibility:hidden">
       </form>
     </div>
+  </div>
+  
+  <div class="versions">
+    <h2>Versions</h2>
+    <ul>
+      <% thisWave.get('versions').each(function (version) { %>
+        <a href="#" class="version-link">
+          <li data-id="<%= version.get('id') %>">
+            <%= version.escape('save_time') %>
+          </li>
+        </a>
+      <% }); %>
+    </ul>
   </div>
 </div>
 

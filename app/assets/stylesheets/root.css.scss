@@ -6,7 +6,7 @@ $orange: darken(#FF9A2E, 0%);
 $dark-orange: darken(#FF9A2E, 10%);
 $green: darken(#C9E69A, 20%);
 $dark-green: darken(#C9E69A, 30%);
-$black: #2D2D2D;
+$black: #343434;
 $purple: #58488A;
 $light-purple: #C7C0DE;
 
@@ -16,10 +16,6 @@ $light-purple: #C7C0DE;
   width: 80%;
   height: 100%;
   overflow-y: scroll;
-}
-
-h4 {
-  color: white;
 }
 
 .separator {
@@ -50,7 +46,7 @@ h4 {
   height: 100%;
   width: 95%;
   font-size: 14px;
-  background-color: $purple;
+  background-color: $black;
   
   ul {
     color: darken(white, 15%);
@@ -61,7 +57,8 @@ h4 {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: white;
+  top: 0;
+  background-color: $black;
 }
 
 .container-row {
@@ -76,7 +73,7 @@ h4 {
   -moz-font-family: "BentonSans", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 200;
-  color: $black;
+  color: white;
 }
 
 #nav-link {

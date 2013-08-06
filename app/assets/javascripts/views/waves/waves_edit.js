@@ -136,6 +136,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     $('#wave-content')
       .val(thisVersion.get('content'))
       .prop('readonly', true);
+    $('#save-button').addClass('disabled-button');
   }
 
 });

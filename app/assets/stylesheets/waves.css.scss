@@ -4,8 +4,8 @@
 
 $orange: darken(#FF9A2E, 0%);
 $dark-orange: darken(#FF9A2E, 10%);
-$black: #2D2D2D;
-$white: darken(white, 60%);
+$black: #343434;
+$white: darken(white, 15%);
 $purple: #58488A;
 $light-purple: #C7C0DE;
 $gray: #D1D0D7;
@@ -18,14 +18,7 @@ $gray: #D1D0D7;
   border-radius: 4px;
 }
 
-h1 {
-  color: white;
-  font-weight: normal;
-  font-family: "BentonSans", "HelveticaNeue", "Helvetica", sans-serif;
-  -moz-font-family: "BentonSans", Helvetica, sans-serif;
-}
-
-h2, h3, h5 {
+h1, h2, h3, h4, h5 {
   color: $purple;
   font-weight: none;
   font-family: "BentonSans", "HelveticaNeue", "Helvetica", sans-serif;
@@ -35,6 +28,18 @@ h2, h3, h5 {
 @mixin input-types {
   font-size: 14px;
   border: 1px solid $white;
+}
+
+.wave-index-header {
+  width: 84.5%;
+}
+
+#user-waves {
+  float: left;
+}
+
+#new-wave-button {
+  float: right;
 }
 
 .wave-content {
@@ -52,6 +57,7 @@ h2, h3, h5 {
   height: 40px;
   color: $purple;
   border: none;
+  background-color: $black;
 }
 
 #wave-content {
@@ -61,7 +67,9 @@ h2, h3, h5 {
   padding: 4px;
   resize: none;
   overflow: scroll;
-  border: none;
+  border: 1px solid $purple;
+  background-color: $black;
+  color: $white;
 }
 
 *:focus {
@@ -79,7 +87,7 @@ h2, h3, h5 {
 }
 
 .wave-button:hover {
-  background-color: white;
+  background-color: $white;
 };
 
 .button {
@@ -88,18 +96,27 @@ h2, h3, h5 {
 	border-radius: 3px;
   border: none;
   background-color: $purple;
-  color: white;
+  color: $white;
   font-weight: bold;
   display: block;
   padding: 4px 0;
-  width: 100px;
+  width: 80px;
   height: 30px;
   font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .button:hover {
   background-color: lighten($purple, 10%);
 };
+
+.disabled-button {
+  background-color: gray;
+}
+
+.disabled-button:hover {
+  background-color: gray;
+}
 
 .wave-link {
   float: left;
@@ -172,7 +189,7 @@ li {
 }
 
 #search-events:hover {
-  border: 1px solid white;
+  border: 1px solid $white;
 }
 
 .friend-search-box {
@@ -181,7 +198,7 @@ li {
 }
 
 .friend-search-submit {
-  color: white;
+  color: $white;
   font-weight: bold;
   background-color: $purple;
 
@@ -242,7 +259,7 @@ li {
   padding-bottom: 20px;
   position: fixed;
   background-color: $purple; 
-  color: white;
+  color: $white;
 }
 
 #new-wave-title {
@@ -263,7 +280,7 @@ li {
 .added-to-wave {
   padding-bottom: 4px;
   height: 1px;
-  color: white;
+  color: $white;
 }
 
 #search-friends {
@@ -289,17 +306,12 @@ li {
 }
 
 .friends-added {
-  color: white;
+  color: $white;
 }
 
 #friend-add-button:hover {
-  background-color: white;
+  background-color: $white;
 };
-
-.back, #save-button {
-  float: bottom;
-  height: 26px;
-}
 
 .friend-add-input, .friend-add-plus {
   float: left;
