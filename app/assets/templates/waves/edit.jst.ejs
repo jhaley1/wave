@@ -130,8 +130,8 @@
         <a href="#" class="version-link">
           <li data-id="<%= version.get('id') %>">
             <% var versionDT = new Date (version.escape('save_time')); %>
-            <% var versionMonth = versionDT.getMonth(); %>
-            <% var versionDay = versionDT.getDay(); %>
+            <% var versionMonth = versionDT.getMonth() + 1; %>
+            <% var versionDay = versionDT.getDate(); %>
             <% var versionYear = versionDT.getFullYear(); %>
             <% var versionHours = versionDT.getHours(); %>
             <% if (versionHours.toString().length == 1) { %>
