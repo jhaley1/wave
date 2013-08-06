@@ -138,8 +138,10 @@
               <% versionHours = '0' + versionHours; %>
             <% } %>
             <% var versionMinutes = versionDT.getMinutes(); %>
-            <%= versionMonth %>/<%= versionDay %>/<%= versionYear %> 
-              - <%= versionHours %>:<%= versionMinutes %> 
+            <button class="new-button version-display-link">
+              <%= versionMonth %>/<%= versionDay %>/<%= versionYear %> 
+                - <%= versionHours %>:<%= versionMinutes %> 
+            </button>
           </li>
         </a>
       <% }); %>

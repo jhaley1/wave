@@ -353,3 +353,17 @@ li {
 .versions {
   float: left;
 }
+
+.version-link {
+  text-decoration: none;
+}
+
+.version-link:hover {
+  text-decoration: none;
+}
+
+.version-display-link {
+  width: 170px;
+  height: 30px;
+  margin-bottom: 5px;
+}

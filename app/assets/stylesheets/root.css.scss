@@ -91,5 +91,24 @@ $white: darken(white, 15%);
   right: 0;
   height: 100%;
   width: 100%;
-  background-color: $purple;
+  background-color: $light-purple;
+}
+
+body {
+  background-color: $light-purple;
+}
+
+#sign-up-submit {
+  width: 220px;
+}
+
+.sign-up-fields {
+  width: 40%;
+  margin-left: 43%;
+  margin-right: 30%;
+  margin-top: 14%;
+}
+
+#sign-up-page-logo {
+  margin-left: 65px;
 }
