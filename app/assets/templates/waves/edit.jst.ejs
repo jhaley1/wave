@@ -1,5 +1,3 @@
-<% console.log(Wavly.waves) %>
-<% console.log(thisWave) %>
 <script>
   $(function(){
   	$(window).load(function(){ // On load
@@ -45,9 +43,10 @@
 
 <% var wave_id = thisWave.get('id') %>
 <input type="hidden" id="js-wave-id" value="<%= wave_id %>">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<div id="slider">a</div>
 
 <div class="wavebox-container">
-
   <div class="wavebox-content">
     <form class="wave">
       <input type="hidden" name="wave[id]" value="<%= wave_id %>">
@@ -104,8 +103,6 @@
     </div>
   </div>
 </div>
-
-  <% console.log(thisWave); %>
 
 <script>
   var all_users = JSON.parse($("#all_users_json").html());

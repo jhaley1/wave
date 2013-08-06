@@ -20,6 +20,19 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     
     this.$el.html(renderedContent);
     
+    $(function () {
+      $("#slider").slider({
+        value: 100,
+        min: 0,
+        max: 500,
+        step: 50,
+        slide: function (event, ui) {
+          $("#amount").val("$" + ui.value);
+        }
+      });
+      $("#amount").val("$" + $("#slider").slider("value"));
+    });
+  
     return this;
   },
   
@@ -34,8 +47,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     
     var _version = new Wavly.Models.Version ();
     var attrs = $('.wave').serializeJSON();
-    var _wave = Wavly.waves.get(attrs.wave.id);
-    
+    var _wave = Wavly.waves.get(attrs.wave.id);   
 
     var options = {
       success: function (model, response) {

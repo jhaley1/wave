@@ -1,7 +1,7 @@
 Wavly::Application.routes.draw do
   root :to => "root#root"
   
-  resources :verions
+  resources :versions
   resources :waves
 
   devise_for :users

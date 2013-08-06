@@ -2,7 +2,6 @@ Wavly.Routers.Waves = Backbone.Router.extend({
   routes: {
     "": "index",
     "waves/new": "newWave",
-    "waves/:id": "showWave",
     "waves/:id/edit": "editWave",
   },
   
@@ -30,16 +29,6 @@ Wavly.Routers.Waves = Backbone.Router.extend({
     });
     
     this._swapView(editView);
-  },
-  
-  showWave: function (id) {
-    var wave = Wavly.waves.get(id);
-    
-    var showView = new Wavly.Views.WaveShow ({
-      model: wave
-    });
-    
-    this._swapView(showView);
   },
   
   _swapView: function (view) {

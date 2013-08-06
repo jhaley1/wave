@@ -1,7 +1,12 @@
 class VersionsController < ApplicationController
   def create
+    debugger
     @wave = Wave.find(params[:wave][:id])
-    @version = @wave.build(params[:wave])
+    @version = @wave.versions.build({
+      wave_id: params[:wave][:id],
+      title: params[:wave][:title],
+      content: params[:wave][:content]
+    })
     @version.save_time = Time.now
     
     if @version.save!
