@@ -2,11 +2,19 @@
   <div class="splash-header">
     <div class="splash-header-menu">
       <div class="header-links">
-        <span class="header-menu-link">Link</span><span id="separator">|</span> 
-        <span class="header-menu-link">Link</span><span id="separator">|</span> 
-        <span class="header-menu-link">Link</span><span id="separator">|</span>
-        <span class="header-menu-link">Link</span><span id="separator">|</span>
-        <span class="header-menu-link">Link</span><span id="separator">|</span>
+        <span class="header-menu-link">
+          <a href="http://jhaley1.github.io" class="header-link">About</a>
+        </span>
+        <span id="separator">|</span>
+        <span class="header-menu-link">
+          <a href="http://www.github.com/jhaley1" class="header-link">Github</a>
+        </span>
+        <span id="separator">|</span>  
+        <span class="header-menu-link">
+          <a href="http://www.linkedin.com/in/jhaley1" class="header-link">LinkedIn</a>
+        </span>
+        <span id="separator">|</span>
+        
       </div>
       
       <div class="header-log-in">
@@ -48,6 +56,34 @@
         new_user_registration_url,
         :method => "get", 
         :class => "sign-up-button" %>
+    </div>
+    
+    <div class="demo-accounts">
+      <div class="demo-account-link1">
+        <form action="<%= session_path(resource_name) %>" method="post">
+          <input type="hidden" 
+            name="user[email]" 
+            value="demo1@demo1.com">
+          <input type="hidden" 
+            name="user[password]" 
+            value="password">
+      
+          <input type="submit" value="Demo account 1" id="demo-button">
+        </form>
+      </div>
+    
+      <div class="demo-account-link2">
+        <form action="<%= session_path(resource_name) %>" method="post">
+          <input type="hidden" 
+            name="user[email]" 
+            value="demo2@demo2.com">
+          <input type="hidden" 
+            name="user[password]" 
+            value="password">
+      
+          <input type="submit" value="Demo account 2" id="demo-button">
+        </form>
+      </div>
     </div>
   </div>
 

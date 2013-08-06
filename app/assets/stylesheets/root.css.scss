@@ -112,3 +112,48 @@ body {
 #sign-up-page-logo {
   margin-left: 65px;
 }
+
+.header-link {
+  padding-right: 5px;
+  padding-left: 5px;
+  color: $light-purple;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.header-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.header-links {
+  padding-left: 5%;
+}
+
+.demo-account-link1, .demo-account-link2 {
+  float: left;
+  text-align: center;
+}
+
+#demo-button {
+  color: $light-purple;
+  font-size: 12px;
+  font-weight: 200;
+  border: none;
+  height: 18px;
+  padding: none;
+  width: 110px;
+  background-color: $purple;
+}
+
+#demo-button:hover {
+  color: white;
+  background-color: $purple;
+}
+
+.demo-accounts {
+  width: 100%;
+  text-align: center;
+  margin-left: 42.5%;
+  margin-top: -20px;
+}
