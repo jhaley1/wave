@@ -47,38 +47,42 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
   
   commitToVersion: function (event) {
     event.preventDefault();
-
-    $('#wave-title')
-      .prop('readonly', false);
-    $('#wave-content')
-      .prop('readonly', false);
-      
-    var valuesToSubmit = $('.wave').serialize();
-    var thisWaveId = $('#js-wave-id').val();
     
-    $.ajax({
-      url: '/waves/' + thisWaveId,
-      type: 'PUT',
-      data: valuesToSubmit
-    });
+    if (event.target.className == 'button') {
+      $('#wave-title')
+        .prop('readonly', false);
+      $('#wave-content')
+        .prop('readonly', false);
+      
+      var valuesToSubmit = $('.wave').serialize();
+      var thisWaveId = $('#js-wave-id').val();
+    
+      $.ajax({
+        url: '/waves/' + thisWaveId,
+        type: 'PUT',
+        data: valuesToSubmit
+      });
+    }
   },
   
   createVersion: function (event) {
     event.preventDefault();
     
-    var _version = new Wavly.Models.Version ();
-    var attrs = $('.wave').serializeJSON();
-    var _wave = Wavly.waves.get(attrs.wave.id);   
+    if (event.target.className == 'button') {
+      var _version = new Wavly.Models.Version ();
+      var attrs = $('.wave').serializeJSON();
+      var _wave = Wavly.waves.get(attrs.wave.id);   
 
-    var options = {
-      success: function (model, response) {
-        console.log(success);
-      }
-    };
+      var options = {
+        success: function (model, response) {
+          console.log(success);
+        }
+      };
 
-    _version.set(attrs);
-    _wave.get('versions').add(_version);
-    _version.save({}, options);
+      _version.set(attrs);
+      _wave.get('versions').add(_version);
+      _version.save({}, options);
+    }
   },
   
   shareWave: function (event) {
@@ -111,12 +115,18 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
   },  
   
   revertToCurrent: function (event) {
-    $('#wave-title')
-      .val(this.currentTitle)
-      .prop('readonly', false);
-    $('#wave-content')
-      .val(this.currentContent)
-      .prop('readonly', false);
+    if (event.target.className == 'button') {
+      $('#wave-title')
+        .val(this.currentTitle)
+        .prop('readonly', false);
+      $('#wave-content')
+        .val(this.currentContent)
+        .prop('readonly', false);
+        
+      $('#save-button').removeClass('disabled-button');
+      $('#revert-version').addClass('disabled-button');
+      $('#commit-to-version').addClass('disabled-button');
+    }
   },
   
   viewVersion: function (event) {
@@ -137,6 +147,8 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
       .val(thisVersion.get('content'))
       .prop('readonly', true);
     $('#save-button').addClass('disabled-button');
+    $('#revert-version').removeClass('disabled-button');
+    $('#commit-to-version').removeClass('disabled-button');
   }
 
 });

@@ -27,8 +27,14 @@
       $("#wave-content").empty().val(data.content);
     });
     
+    var timeoutId = 0;
+    
     $(".wave").keyup(function (event) {
-      event.preventDefault();
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(submitPusher, 300);
+    });
+    
+    function submitPusher () {
       var valuesToSubmit = $(".wave").serialize();
       
       $.ajax({
@@ -36,7 +42,7 @@
         type: "PUT",
         data: valuesToSubmit
       });
-    });
+    }
   });
 </script>
 
@@ -54,17 +60,17 @@
         placeholder="title"
         value="<%= thisWave.get('title') %>">
       <textarea id="wave-content" 
-        name="wave[content]" data-provide="markdown-editable">
+        name="wave[content]">
 <%= thisWave.get('content') %></textarea>
     </form>
     <div class="save-button">
       <button class="button" id="save-button">Save</button>
     </div>
     <div class="revert-button">
-      <button class="button" id="revert-version">Revert</button>
+      <button class="button disabled-button" id="revert-version">Revert</button>
     </div>
     <div class="commit-button">
-      <button class="button" id="commit-to-version">Commit</button>
+      <button class="button disabled-button" id="commit-to-version">Commit</button>
     </div>
     <div class="back-button">
       <button class="button" id="back-to-waves">Back</button>
@@ -83,32 +89,37 @@
       <% }); %>
       <h2>Wave creator</h2>
         <ul><%= thisWaveCreator.email %></ul>
+        
+      <div class="separator"></div>
+      
+      <div class="add-to-wave">
+        <h2>Add to wave</h2>
+        <form class="friend-search-box">
+          <input type="text" 
+            data-provide="typeahead" 
+            autocomplete="off" 
+            class="typeahead"
+            id="search-friends"
+            placeholder="Friend's name">
+
+          <button class="friend-search-submit">+</button>
+        </form>
+    
+        <form class="add-user-to-wave">
+          <input type="submit" 
+            id="submit-wave-to-user"
+            style="visibility:hidden">
+        </form>
+      </div>
+        
+      <div class="separator"></div>
+        
       <h2>In wave</h2>
       <ul>
         <% _(thisWave.get('friends')).each(function (friend) { %>
           <%= friend.email %>
         <% }); %>
       </ul>
-    </div>
-    
-    <div class="add-to-wave">
-      <h2>Add to wave</h2>
-      <form class="friend-search-box">
-        <input type="text" 
-          data-provide="typeahead" 
-          autocomplete="off" 
-          class="typeahead"
-          id="search-friends"
-          placeholder="Friend's name">
-  
-        <button class="friend-search-submit">+</button>
-      </form>
-      
-      <form class="add-user-to-wave">
-        <input type="submit" 
-          id="submit-wave-to-user"
-          style="visibility:hidden">
-      </form>
     </div>
   </div>
   
@@ -118,7 +129,17 @@
       <% thisWave.get('versions').each(function (version) { %>
         <a href="#" class="version-link">
           <li data-id="<%= version.get('id') %>">
-            <%= version.escape('save_time') %>
+            <% var versionDT = new Date (version.escape('save_time')); %>
+            <% var versionMonth = versionDT.getMonth(); %>
+            <% var versionDay = versionDT.getDay(); %>
+            <% var versionYear = versionDT.getFullYear(); %>
+            <% var versionHours = versionDT.getHours(); %>
+            <% if (versionHours.toString().length == 1) { %>
+              <% versionHours = '0' + versionHours; %>
+            <% } %>
+            <% var versionMinutes = versionDT.getMinutes(); %>
+            <%= versionMonth %>/<%= versionDay %>/<%= versionYear %> 
+              - <%= versionHours %>:<%= versionMinutes %> 
           </li>
         </a>
       <% }); %>

@@ -9,6 +9,7 @@ $white: darken(white, 15%);
 $purple: #58488A;
 $light-purple: #C7C0DE;
 $gray: #D1D0D7;
+$text-purple: lighten($purple, 15%);
 
 @mixin new-wave-button-style {
   border: none;
@@ -19,7 +20,7 @@ $gray: #D1D0D7;
 }
 
 h1, h2, h3, h4, h5 {
-  color: $purple;
+  color: $text-purple;
   font-weight: none;
   font-family: "BentonSans", "HelveticaNeue", "Helvetica", sans-serif;
   -moz-font-family: "BentonSans", Helvetica, sans-serif;
@@ -42,6 +43,19 @@ h1, h2, h3, h4, h5 {
   float: right;
 }
 
+.new-button {
+  background-color: $purple;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  @include new-wave-button-style;
+}
+
+.new-button:hover {
+  background-color: $light-purple;
+}
+
 .wave-content {
   margin-left: 10px;
   width: 90%;
@@ -55,7 +69,7 @@ h1, h2, h3, h4, h5 {
   font-size: 32px;
   font-weight: bold;
   height: 40px;
-  color: $purple;
+  color: $text-purple;
   border: none;
   background-color: $black;
 }
@@ -122,14 +136,15 @@ h1, h2, h3, h4, h5 {
   float: left;
   padding-top: 10px;
   padding-bottom: 2px;
-  width: 90%;
+  margin-right: 1%;
+  width: 89%;
   height: 20px;
-  color: $purple;
-  border-bottom: 1px solid $gray;
+  color: $text-purple;
+  border-bottom: 1px solid $white;
 }
 
 .wave-link:hover {
-  color: lighten($purple, 15%);
+  color: $white;
 }
 
 .wavebox-container {
@@ -138,7 +153,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .wavebox-content {
-  width: 55%;
+  width: 50%;
   height: 300px;
   float: left;
   display: block;
@@ -164,7 +179,8 @@ li {
 }
 
 .add-to-wave {
-  height: 340px;
+  height: 100px;
+  margin-bottom: 10px;
 }
 
 .wave-form-buttons {
@@ -272,6 +288,10 @@ li {
   resize: none;
 }
 
+.wavebox-contacts {
+  width: 25%;
+}
+
 .friend-add-box {
   height: 10px;
   width: 100%;
@@ -284,8 +304,10 @@ li {
 }
 
 #search-friends {
-  height: 22px;
+  height: 20px;
   font-size: 14px;
+  background-color: $black;
+  border: 1px solid $purple;
 }
 
 #friend-add-button {
@@ -326,4 +348,8 @@ li {
 .wave-delete {
   height: 27px;
   width: 30px;
+}
+
+.versions {
+  float: left;
 }

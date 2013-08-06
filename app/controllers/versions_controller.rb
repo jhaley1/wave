@@ -1,6 +1,5 @@
 class VersionsController < ApplicationController
   def create
-    debugger
     @wave = Wave.find(params[:wave][:id])
     @version = @wave.versions.build({
       wave_id: params[:wave][:id],

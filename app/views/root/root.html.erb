@@ -23,17 +23,24 @@
   <%= current_user.waves.to_json.html_safe %>
 </script>
 
+<div class="site-header">
+  hi
+</div>
+
 <div class="container">
   <div class="container-row">
     
     <div class="sidebar">
       <div class="sidebar-content">
-        <%= button_to "Sign out", 
+        <%= button_to "Leave Wavly   :'(", 
           destroy_user_session_url, 
           :method => "delete", 
-          :class => "log-out-button" %>
+          :class => "new-button",
+          :id => "log-out-button" %>
         <h1>Using Wavly...</h1>
+        
         <div class="separator"></div>
+        
         <ul>
           <h4>Versions: </h4>
           Late to join the conversation? You can access and store your Waves for later. Click the version date to access a previous version of your Wave. The first step is to
