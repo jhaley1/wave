@@ -208,6 +208,7 @@ li {
   font-size: 16px;
   height: 80%;
   width: 70%;
+  color: $white;
 }
 
 #search-events:hover {
@@ -287,11 +288,13 @@ li {
 }
 
 #new-wave-title {
+  color: $white;
   width: 95%;
   height: 20px;
 }
 
 #new-wave-content {
+  color: $white;
   width: 95%;
   resize: none;
 }
@@ -330,6 +333,7 @@ li {
   width: 180px;
   background-color: $black;
   border: 1px solid $purple;
+  color: $white;
 }
 
 #friend-add-button {

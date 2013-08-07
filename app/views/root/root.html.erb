@@ -29,7 +29,10 @@
 $(function() {
   $('p').hide();
   $('h4').click(function() {
-    $(this).next('p').toggle();
+    $(this).next('p').animate({
+      height: 'toggle',
+      opacity: 'toggle'
+    });
   });
 });
 </script>

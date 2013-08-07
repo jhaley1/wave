@@ -93,6 +93,9 @@
               <% versionHours = '0' + versionHours; %>
             <% } %>
             <% var versionMinutes = versionDT.getMinutes(); %>
+            <% if (versionMinutes.toString().length == 1) { %>
+              <% versionMinutes = '0' + versionMinutes; %>
+            <% } %>
             <button class="button version-display-link" 
               data-id="<%= version.get('id') %>">
               <%= versionMonth %>/<%= versionDay %>/<%= versionYear %> 
@@ -143,7 +146,6 @@
       <h2>Others in Wave</h2>
       <ul id="js-new-wave-user">
         <% _(thisWave.get('friends')).each(function (friend) { %>
-          <% console.log(thisWave.get('friends')); %>
           <%= friend.email %>
         <% }); %>
       </ul>
