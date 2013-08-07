@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5 {
 .wave-content {
   margin-left: 10px;
   width: 90%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #wave-title {
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5 {
   width: 95%;
   padding: 4px;
   resize: none;
-  overflow: scroll;
+  overflow: auto;
   border: 1px solid $purple;
   background-color: $black;
   color: $white;
@@ -91,17 +91,23 @@ h1, h2, h3, h4, h5 {
 }
 
 .wave-button {
-  @include new-wave-button-style;
+  color: $white;
+  background-color: $purple;
+  border: none;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
   padding-left: 12px;
   padding-right: 12px;
   font-size: 13px;
   font-weight: 500;
   margin-bottom: 10px;
-  height: 24px;
+  height: 28px;
+  width: 80px;
 }
 
 .wave-button:hover {
-  background-color: $white;
+  background-color: lighten($purple, 10%);
 };
 
 .button {
@@ -220,8 +226,9 @@ li {
 
   border: none;
   text-align: center;
-  width: 15%;
-  height: 100%;
+  margin-top: 4px;
+  width: 36px;
+  height: 32px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -237,7 +244,7 @@ li {
 	bottom: 0;
   left: 20%;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
   animation: fadein 1s;
   -moz-animation: fadein 1s; // Firefox
   -webkit-animation: fadein 1s; // Safari and Chrome
@@ -274,7 +281,8 @@ li {
   padding-left: 20px;
   padding-bottom: 20px;
   position: fixed;
-  background-color: $purple; 
+  background-color: $black; 
+  border: 1px solid $purple;
   color: $white;
 }
 
@@ -299,32 +307,47 @@ li {
 
 .added-to-wave {
   padding-bottom: 4px;
-  height: 1px;
+  height: 30px;
   color: $white;
 }
 
+#friend-add-box {
+  position: relative;
+}
+
+#new-wave-content, #new-wave-title {
+  background-color: $black;
+  border: 1px solid $purple;
+}
+
+#friend-add-plus, #friend-add-input {
+  display: inline-block;
+}
+
 #search-friends {
-  height: 20px;
+  height: 22px;
   font-size: 14px;
+  width: 180px;
   background-color: $black;
   border: 1px solid $purple;
 }
 
 #friend-add-button {
-  color: $purple;
+  color: $white;
   font-weight: bold;
-  background-color: $light-purple;
+  background-color: $purple;
   font-size: 16px;
 
   border: none;
   text-align: center;
   width: 40px;
-  height: 30px;
+  height: 34px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   padding-top: 5px;
   padding-bottom: 5px;
+  margin-top: 14px;
 }
 
 .friends-added {
@@ -332,7 +355,7 @@ li {
 }
 
 #friend-add-button:hover {
-  background-color: $white;
+  background-color: lighten($purple, 10%);
 };
 
 .friend-add-input, .friend-add-plus {
@@ -352,6 +375,7 @@ li {
 
 .versions {
   float: left;
+  width: 20%;
 }
 
 .version-link {

@@ -78,6 +78,32 @@
       
   </div>
   
+  <div class="versions">
+    <h2>Versions</h2>
+    <ul>
+      <% thisWave.get('versions').each(function (version) { %>
+        <a href="#" class="version-link">
+          <li>
+            <% var versionDT = new Date (version.escape('save_time')); %>
+            <% var versionMonth = versionDT.getMonth() + 1; %>
+            <% var versionDay = versionDT.getDate(); %>
+            <% var versionYear = versionDT.getFullYear(); %>
+            <% var versionHours = versionDT.getHours(); %>
+            <% if (versionHours.toString().length == 1) { %>
+              <% versionHours = '0' + versionHours; %>
+            <% } %>
+            <% var versionMinutes = versionDT.getMinutes(); %>
+            <button class="button version-display-link" 
+              data-id="<%= version.get('id') %>">
+              <%= versionMonth %>/<%= versionDay %>/<%= versionYear %> 
+                - <%= versionHours %>:<%= versionMinutes %> 
+            </button>
+          </li>
+        </a>
+      <% }); %>
+    </ul>
+  </div>
+  
   <div class="wavebox-contacts">
     <div class="in-wave">
       <% var allUsers = JSON.parse($('#all_users_json').html()); %>
@@ -115,37 +141,13 @@
       <div class="separator"></div>
         
       <h2>Others in Wave</h2>
-      <ul>
+      <ul id="js-new-wave-user">
         <% _(thisWave.get('friends')).each(function (friend) { %>
+          <% console.log(thisWave.get('friends')); %>
           <%= friend.email %>
         <% }); %>
       </ul>
     </div>
-  </div>
-  
-  <div class="versions">
-    <h2>Versions</h2>
-    <ul>
-      <% thisWave.get('versions').each(function (version) { %>
-        <a href="#" class="version-link">
-          <li data-id="<%= version.get('id') %>">
-            <% var versionDT = new Date (version.escape('save_time')); %>
-            <% var versionMonth = versionDT.getMonth() + 1; %>
-            <% var versionDay = versionDT.getDate(); %>
-            <% var versionYear = versionDT.getFullYear(); %>
-            <% var versionHours = versionDT.getHours(); %>
-            <% if (versionHours.toString().length == 1) { %>
-              <% versionHours = '0' + versionHours; %>
-            <% } %>
-            <% var versionMinutes = versionDT.getMinutes(); %>
-            <button class="new-button version-display-link">
-              <%= versionMonth %>/<%= versionDay %>/<%= versionYear %> 
-                - <%= versionHours %>:<%= versionMinutes %> 
-            </button>
-          </li>
-        </a>
-      <% }); %>
-    </ul>
   </div>
 </div>
 

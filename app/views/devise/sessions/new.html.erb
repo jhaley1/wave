@@ -60,29 +60,31 @@
     
     <div class="demo-accounts">
       <div class="demo-account-link1">
-        <form action="<%= session_path(resource_name) %>" method="post">
-          <input type="hidden" 
-            name="user[email]" 
-            value="demo1@demo1.com">
-          <input type="hidden" 
-            name="user[password]" 
-            value="password">
-      
-          <input type="submit" value="Demo account 1" id="demo-button">
-        </form>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <%= f.email_field :email, 
+            :type => "hidden", 
+            :id => "email-field",
+            :value => "demo1@demo1.com" %>
+        <%= f.password_field :password, 
+          :type => "hidden",
+          :id => "password-field",
+          :value => "password" %>
+          <%= f.submit "Demo account 1", :id => "demo-button" %>
+        <% end %>
       </div>
     
       <div class="demo-account-link2">
-        <form action="<%= session_path(resource_name) %>" method="post">
-          <input type="hidden" 
-            name="user[email]" 
-            value="demo2@demo2.com">
-          <input type="hidden" 
-            name="user[password]" 
-            value="password">
-      
-          <input type="submit" value="Demo account 2" id="demo-button">
-        </form>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <%= f.email_field :email, 
+            :type => "hidden", 
+            :id => "email-field",
+            :value => "demo2@demo2.com" %>
+        <%= f.password_field :password, 
+          :type => "hidden",
+          :id => "password-field",
+          :value => "password" %>
+          <%= f.submit "Demo account 2", :id => "demo-button" %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -98,7 +98,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
         "<input type='hidden' name='wave[friend_ids][]' value='" + id + "'>"
       );
     
-      $(".in-wave ul").append(
+      $(".js-new-wave-user").append(
         "<li><span class='friends-shared'>" + email + "</span></li>"
       );
 
@@ -137,9 +137,8 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     
     var thisVersionId = $(event.target).attr('data-id');
     var theseVersions = this.model.get('versions');
-    var thisVersion;
     var thisVersion = this.model.get('versions').get(thisVersionId);
-    
+
     $('#wave-title')
       .val(thisVersion.get('title'))
       .prop('readonly', true);

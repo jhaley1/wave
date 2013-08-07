@@ -23,6 +23,17 @@
   <%= current_user.waves.to_json.html_safe %>
 </script>
 
+<script>
+
+
+$(function() {
+  $('p').hide();
+  $('h4').click(function() {
+    $(this).next('p').toggle();
+  });
+});
+</script>
+
 <div class="site-header">
   hi
 </div>
@@ -37,19 +48,19 @@
           :method => "delete", 
           :class => "new-button",
           :id => "log-out-button" %>
-        <h1>Using Wavly...</h1>
+        <h2>Using Wavly:</h2>
         
         <div class="separator"></div>
         
         <ul>
-          <h4>Versions: </h4>
-          Late to join the conversation? You can access and store your Waves for later. Click the version date to access a previous version of your Wave. The first step is to
-          <h4>Save</h4>
-          You have to click the save button in order to version a Wave, otherwise the conversation will continue as normal. It's also a good idea to save your current wave before you
-          <h4>Commit</h4>
-          Sometimes old is better than new: the commit button lets you commit to the current version of the wave you are viewing. Fortunately, if you don't like the version that you're viewing, you can always
-          <h4>Revert</h4>
-          Out with the old, in with the new: the revert button will take you back to the prior conversation.
+          <h4 class="clickable">Versions</h4>
+          <p>Late to join the conversation? You can access and store your Waves for later. Click the version date to access a previous version of your Wave. The first step is to</p>
+          <h4 class="clickable">Save</h4>
+          <p>You have to click the save button in order to version a Wave, otherwise the conversation will continue as normal. It's also a good idea to save your current wave before you</p>
+          <h4 class="clickable">Commit</h4>
+          <p>Sometimes old is better than new: the commit button lets you commit to the current version of the wave you are viewing. Fortunately, if you don't like the version that you're viewing, you can always</p>
+          <h4 class="clickable">Revert</h4>
+          <p>Out with the old, in with the new: the revert button will take you back to the prior conversation.</p>
         </ul>
 
       </div>

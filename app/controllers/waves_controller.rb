@@ -25,7 +25,7 @@ class WavesController < ApplicationController
   end
   
   def index
-    if current_user.friends_waves
+    if current_user.shared_waves
       @waves = current_user.waves + current_user.shared_waves
     else
       @waves = current_user.waves
