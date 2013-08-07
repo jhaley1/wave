@@ -56,6 +56,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
       
       var valuesToSubmit = $('.wave').serialize();
       var thisWaveId = $('#js-wave-id').val();
+      $('#save-button').removeClass('disabled-button');
     
       $.ajax({
         url: '/waves/' + thisWaveId,
@@ -67,6 +68,15 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
   
   createVersion: function (event) {
     event.preventDefault();
+    
+    var valuesToSubmit = $('.wave').serialize();
+    var thisWaveId = $('#js-wave-id').val();
+  
+    $.ajax({
+      url: '/waves/' + thisWaveId,
+      type: 'PUT',
+      data: valuesToSubmit
+    });
 
     var that = this;
     
@@ -80,7 +90,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
           that.render();
         }
       };
-
+      
       _version.set(attrs);
       _wave.get('versions').add(_version);
       _version.save({}, options);
