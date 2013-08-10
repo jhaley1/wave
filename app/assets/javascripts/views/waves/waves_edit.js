@@ -71,7 +71,7 @@ Wavly.Views.WaveEdit = Backbone.View.extend({
     
     var valuesToSubmit = $('.wave').serialize();
     var thisWaveId = $('#js-wave-id').val();
-  
+
     $.ajax({
       url: '/waves/' + thisWaveId,
       type: 'PUT',

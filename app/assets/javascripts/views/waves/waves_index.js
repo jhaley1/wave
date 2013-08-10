@@ -30,6 +30,10 @@ Wavly.Views.WavesIndex = Backbone.View.extend({
     event.preventDefault();
     
     var _model = this.collection.get(event.target.id);
+    console.log(_model);
+    console.log(event.target.id);
+    console.log(event);
+    console.log(event.target);
     
     var options = {
       success: function () {

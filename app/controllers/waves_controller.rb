@@ -12,8 +12,18 @@ class WavesController < ApplicationController
   end
   
   def destroy
-    @wave = current_user.waves.find(params[:id])
+    debugger
+    @wave = current_user.waves.where(id: params[:id])
+
+    if @wave == []
+      @wave = current_user.shared_waves.where(id: params[:id])
+      is_a_shared_wave = true
+    end
+    
     current_user.waves.delete(@wave)
+    current_user.shared_waves.delete(@wave) if is_a_shared_wave
+    
+    current_user.save!
     
     render :json => @wave
   end
