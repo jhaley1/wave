@@ -60,7 +60,8 @@
         placeholder="title"
         value="<%= thisWave.get('title') %>">
       <textarea id="wave-content" 
-        name="wave[content]">
+        name="wave[content]"
+        data-provide="markdown-editable">
 <%= thisWave.get('content') %></textarea>
     </form>
     <div class="save-button">

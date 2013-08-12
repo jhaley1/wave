@@ -1,5 +1,5 @@
 /* ===================================================
- * bootstrap-markdown.js v1.1.2
+ * bootstrap-markdown.js v1.1.4
  * http://github.com/toopay/bootstrap-markdown
  * ===================================================
  * Copyright 2013 Taufan Aditya
@@ -85,7 +85,8 @@
                 buttonToggle = '',
                 buttonHandler = ns+'-'+button.name,
                 btnText = button.btnText ? button.btnText : '',
-                btnClass = button.btnClass ? button.btnClass : 'btn'
+                btnClass = button.btnClass ? button.btnClass : 'btn',
+                tabIndex = button.tabIndex ? button.tabIndex : '-1'
 
             if (button.toggle == true) {
               buttonToggle = ' data-toggle="button"'
@@ -96,6 +97,8 @@
                                     +btnClass
                                     +' btn-small" title="'
                                     +button.title
+                                    +'" tabindex="'
+                                    +tabIndex
                                     +'" data-provider="'
                                     +ns
                                     +'" data-handler="'
@@ -540,12 +543,25 @@
             setTimeout(function(){
               that.setSelection(nextTab.start,nextTab.end)
             },500)
+
+            blocked = true
           } else {
-            // Put the cursor to the end
-            this.setSelection(this.getContent().length,this.getContent().length)
+            // The next tab memory contains nothing...
+            // check the cursor position to determine tab action
+            var cursor = this.getSelection() 
+
+            if (cursor.start == cursor.end && cursor.end == this.getContent().length) {
+              // The cursor already reach the end of the content
+              blocked = false
+
+            } else {
+              // Put the cursor to the end
+              this.setSelection(this.getContent().length,this.getContent().length)
+              
+              blocked = true
+            }
           }
 
-          blocked = true
           break
 
         case 13: // enter
