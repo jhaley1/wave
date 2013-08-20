@@ -12,7 +12,6 @@ class WavesController < ApplicationController
   end
   
   def destroy
-    debugger
     @wave = current_user.waves.where(id: params[:id])
 
     if @wave == []
